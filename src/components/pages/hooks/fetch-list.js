@@ -1,20 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export const useFetch = (url) => {
+export const useFetch = (raw_api, init_url) => {
   const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState([]);
-  const [next, setNext] = useState(url);
+  const [next, setNext] = useState('');
+  const [prev, setPrev] = useState('');
 
   const getPokemon = useCallback(async () => {
-    const response = await fetch(url);
+    const response = await fetch(init_url);
     const data = await response.json();
 
     setNext(data.next);
+    setPrev(data.prev);
 
     const pokemonObject = (result) => {
       result.forEach(
         async (pokemon) => {
-          const response = await fetch(`${url}${pokemon.name}`);
+          const response = await fetch(`${raw_api}${pokemon.name}`);
           const data = await response.json();
 
           setPokemon(
@@ -29,12 +31,12 @@ export const useFetch = (url) => {
     pokemonObject(data.results);
 
 
-  }, [url]);
+  }, [init_url]);
 
 
   useEffect(() => {
     getPokemon();
-  }, [url, getPokemon]);
+  }, [init_url, getPokemon]);
 
-  return { loading, pokemon, next };
+  return { loading, pokemon, next, prev };
 };

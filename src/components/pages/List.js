@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 // hook
 import { useFetch } from './hooks/fetch-list';
 // data
-import { pokeapiPokemonList } from '../../data/api';
+import { pokeapi_pokemon_list, pokeapi_complete_pokemon_list } from '../../data/api';
 
 const LoadContext = React.createContext();
 
 const List = () => {
-  const { loading, pokemon, next } = useFetch(pokeapiPokemonList)
+  const { loading, pokemon, next, prev } = useFetch(pokeapi_pokemon_list, pokeapi_complete_pokemon_list)
 
   return (
     <React.Fragment>
@@ -40,7 +40,7 @@ const Pokemon = (pokemon) => {
   return (
     <div className="card" style={{ width: "18rem" }}>
       <h6>#{id}</h6>
-      <h4>{name}</h4>
+      <img src={image} alt={name} />
       <ul>
         {
           types.map(
@@ -52,13 +52,13 @@ const Pokemon = (pokemon) => {
           )
         }
       </ul>
-      <img src={image} alt={name} />
+      <h4>{name}</h4>
     </div>
   )
 }
 
 Pokemon.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   name: PropTypes.string.isRequired,
   sprites: PropTypes.object,
   types: PropTypes.array,
@@ -70,7 +70,10 @@ const Load = () => {
   const { useFetch } = useContext(LoadContext);
 
   return (
-    <button >Next</button>
+    <React.Fragment>
+      <button >Prev</button>
+      <button >Next</button>
+    </React.Fragment>
   )
 }
 

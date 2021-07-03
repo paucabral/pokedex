@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+// react router dom
+import { Link } from 'react-router-dom';
 // prop types
 import PropTypes from 'prop-types';
 // hook
@@ -9,7 +11,7 @@ import { pokeapi_pokemon_list, pokeapi_complete_pokemon_list } from '../../data/
 const LoadContext = React.createContext();
 
 const List = () => {
-  const { loading, pokemon, next, prev } = useFetch(pokeapi_pokemon_list, pokeapi_complete_pokemon_list)
+  const { loading, pokemon, next, prev } = useFetch(pokeapi_pokemon_list, pokeapi_pokemon_list)
 
   return (
     <React.Fragment>
@@ -52,7 +54,7 @@ const Pokemon = (pokemon) => {
           )
         }
       </ul>
-      <h4>{name}</h4>
+      <Link to={`/pokemon/${id}`}><h4>{name}</h4></Link>
     </div>
   )
 }

@@ -31,7 +31,7 @@ export const useFetch = (raw_api, init_url) => {
     pokemonObject(data.results);
 
 
-  }, [init_url]);
+  }, [raw_api, init_url]);
 
 
   useEffect(() => {

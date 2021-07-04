@@ -12,11 +12,9 @@ const LoadContext = React.createContext();
 
 const List = () => {
   const info = pokeapi_pokemon_info;
-  // const [url, setUrl] = useState(pokeapi_pokemon_list);
-  const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/900/");
+  const [url, setUrl] = useState(pokeapi_pokemon_list);
 
   const { loading, error, pokemon, next, prev } = useFetch(info, url)
-  
   return (
     <React.Fragment>
       <h3>List</h3>

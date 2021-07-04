@@ -52,10 +52,8 @@ export const useFetch = (raw_api, init_url) => {
 
 
   useEffect(() => {
-    getPokemon();
-
     if (!error) {
-      return setPokemon([]);
+      return getPokemon([]);
     }
 
   }, [init_url, getPokemon]);

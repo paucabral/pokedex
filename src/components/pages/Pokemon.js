@@ -11,17 +11,19 @@ import { pokeapi_pokemon_info } from '../../data/api';
 const Pokemon = () => {
   const { id } = useParams();
   const url = `${pokeapi_pokemon_info}${id}`;
-  const { loading, pokemon, info } = useFetch(url);
-
+  const { loading, error, pokemon, info } = useFetch(url);
+  
   return (
     <React.Fragment>
       <section>
         {
-          loading ? 'loading...' :
-            <div>
-              <Img {...pokemon} />
-              <Info {...info} />
-            </div>
+          error ? <Error /> : loading ? 'loading...' :
+            (
+              <div>
+                <Img {...pokemon} />
+                <Info {...info} />
+              </div>
+            )
         }
       </section>
     </React.Fragment>
@@ -41,6 +43,7 @@ const Img = (pokemon) => {
         <img src={image} alt={name} />
         <ul>
           {
+            types &&
             types.map(
               (type) => {
                 return (
@@ -59,7 +62,6 @@ const Info = (info) => {
   const { flavor_text_entries } = info;
   const text_entry = (flavor_text_entries && flavor_text_entries[0].flavor_text);
 
-  console.log(text_entry);
   return (
     <React.Fragment>
       <div className="card" style={{ width: "18rem" }}>
@@ -75,6 +77,16 @@ Pokemon.propTypes = {
   sprites: PropTypes.object,
   types: PropTypes.array,
   flavor_text_entries: PropTypes.array,
+}
+
+const Error = () => {
+  return (
+    <React.Fragment>
+      <div>
+        <p>There was an error.</p>
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default Pokemon

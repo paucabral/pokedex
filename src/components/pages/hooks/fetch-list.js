@@ -11,15 +11,18 @@ export const useFetch = (raw_api, init_url) => {
     const data = await response.json();
 
     setNext(data.next);
-    setPrev(data.prev);
+    setPrev(data.previous);
 
     const pokemonObject = (result) => {
+      setPokemon([]);
       result.forEach(
         async (pokemon) => {
           const response = await fetch(`${raw_api}${pokemon.name}`);
           const data = await response.json();
 
           setPokemon(
+            // currentList => [...currentList, data]
+            // [data]
             currentList => [...currentList, data]
           );
 

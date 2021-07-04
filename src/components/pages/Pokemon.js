@@ -70,8 +70,8 @@ const Info = (info) => {
 }
 
 Pokemon.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  id: PropTypes.number,
+  name: PropTypes.string,
   sprites: PropTypes.object,
   types: PropTypes.array,
   flavor_text_entries: PropTypes.array,

@@ -19,8 +19,7 @@ export const useFetch = (url) => {
 
         if (response.status >= 200 && response.status <= 299) {
           const data = await response.json();
-
-          // console.log(data.flavor_text_entries[0].flavor_text);
+          
           setInfo(data);
           setLoading(false);
         }

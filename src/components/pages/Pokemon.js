@@ -82,7 +82,6 @@ const Img = (pokemon) => {
       <div className="card" style={{ width: "18rem" }}>
         <h6>#{id}</h6>
         <img src={image} alt={name}/>
-        <img width="25%" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
       </div>
     </React.Fragment>
   )
@@ -247,6 +246,7 @@ const Info = (info) => {
         
         <div>
           <h5>Base Stat</h5>
+          <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
           <ul>
             {
               stats &&

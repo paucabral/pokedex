@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // hook
 import { useFetch } from './hooks/fetch-pokemon';
 // data
-import { pokeapi_pokemon_info } from '../../data/api';
+import { pokeapi_pokemon_info, pokemon_showdown_sprites_directory } from '../../data/api';
 // pokemon-types images
 import bug from '../../assets/pokemon-types/bug.png';
 import dark from '../../assets/pokemon-types/dark.png';
@@ -81,7 +81,8 @@ const Img = (pokemon) => {
     <React.Fragment>
       <div className="card" style={{ width: "18rem" }}>
         <h6>#{id}</h6>
-        <img src={image} alt={name} />
+        <img src={image} alt={name}/>
+        <img width="25%" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
       </div>
     </React.Fragment>
   )
@@ -226,7 +227,6 @@ const Info = (info) => {
             types.map(
               (type) => {
                 typeDisplay(type.type.name);
-                console.log(type_img);
                 return (
                   <li key={type.slot}>
                     {type.type.name}

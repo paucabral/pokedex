@@ -53,7 +53,14 @@ const Pokemon = (pokemon) => {
           types.map(
             (type) => {
               return (
-                <li key={type.slot}>{type.type.name}</li>
+                <li key={type.slot} className="noBullet">
+                  <div className="container icon">
+                    <div className={`label ${type.type.name}`}>
+                      {type.type.name}
+                    </div>
+                  </div>
+                  {/* <img width="25%" src={type_label} alt={type.type.name}/> */}
+                </li>
               )
             }
           )
@@ -97,12 +104,12 @@ const Load = () => {
   return (
     <React.Fragment>
       {
-        buttons.prev ? <button onClick={handleSubmitPrev}>Prev</button> :
-          <div></div>
+        buttons.prev ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" onClick={handleSubmitPrev}>Prev</button> :
+          <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" disabled>Prev</button>
       }   
       {
-        buttons.next ? <button onClick={handleSubmitNext}>Next</button> :
-          <div></div>
+        buttons.next ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-primary" onClick={handleSubmitNext}>Next</button> :
+          <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-primary" disabled>Next</button>
       }
 
     </React.Fragment>

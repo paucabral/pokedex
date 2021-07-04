@@ -74,12 +74,74 @@ const Pokemon = () => {
 }
 
 const Img = (pokemon) => {
-  const { id, name, sprites } = pokemon;
+  const { id, name, sprites, types } = pokemon;
   const image = (sprites && sprites.other["official-artwork"].front_default);
+
+  let type_bg;
+  const typeDisplay = (type) => {
+    if (type === "bug") {
+      type_bg = "rgb(144, 193, 44, .8)";
+    }
+    else if (type === "dark") {
+      type_bg = "rgba(90, 83, 102, .8)";
+    }
+    else if (type === "dragon") {
+      type_bg = "rgba(9, 109, 196, .8)";
+    }
+    else if (type === "electric") {
+      type_bg = "rgba(243, 210, 59, .8)";
+    }
+    else if (type === "fairy") {
+      type_bg = "rgba(236, 143, 230, .8)";
+    }
+    else if (type === "fighting") {
+      type_bg = "rgba(206, 64, 105, .8)";
+    }
+    else if (type === "fire") {
+      type_bg = "rgba(255, 156, 84, .8)";
+    }
+    else if (type === "flying") {
+      type_bg = "rgba(146, 170, 222, .8)";
+    }
+    else if (type === "ghost") {
+      type_bg = "rgba(82, 105, 172, .8)";
+    }
+    else if (type === "grass") {
+      type_bg = "rgba(99, 187, 91, .8)";
+    }
+    else if (type === "ground") {
+      type_bg = "rgba(217, 119, 70, .8)";
+    }
+    else if (type === "ice") {
+      type_bg = "rgba(116, 206, 192, .8)";
+    }
+    else if (type === "normal") {
+      type_bg = "rgba(144, 153, 161, .8)";
+    }
+    else if (type === "poison") {
+      type_bg = "rgba(171, 106, 200, .8)";
+    }
+    else if (type === "psychic") {
+      type_bg = "rgba(249, 113, 118, .8)";
+    }
+    else if (type === "rock") {
+      type_bg = "rgba(199, 183, 139, .8)";
+    }
+    else if (type === "steel") {
+      type_bg = "rgba(90, 142, 161, .8)";
+    }
+    else if (type === "water") {
+      type_bg = "rgba(77, 144, 213, .8)";
+    }
+    else {
+      type_bg = "rgba(93, 84, 118, .8)";
+    }
+  }
 
   return (
     <React.Fragment>
-      <div className="card" style={{ width: "18rem" }}>
+      {types && typeDisplay(types[0].type.name)}
+      <div className="card" style={{ width: "18rem", backgroundColor: type_bg }}>
         <h6>#{id}</h6>
         <img src={image} alt={name}/>
       </div>
@@ -179,9 +241,6 @@ const Info = (info) => {
     }
   }
 
-  console.log(details);
-  console.log(info);
-
   let gen = (generation && generation.name);
   const genNum = (num) => {
     if (num === "generation-i") {
@@ -227,10 +286,15 @@ const Info = (info) => {
               (type) => {
                 typeDisplay(type.type.name);
                 return (
-                  <li key={type.slot}>
-                    {type.type.name}
-                    <img width="15%" src={type_img} alt={type.type.name}/>
-                    <img width="25%" src={type_label} alt={type.type.name}/>
+                  <li key={type.slot} className="noBullet">
+                    <div className="container icon">
+                      <img width="15%" src={type_img} alt={type.type.name}/>
+                      <br/>
+                      <div className={`label ${type.type.name}`}>
+                        {type.type.name}
+                      </div>
+                    </div>
+                    {/* <img width="25%" src={type_label} alt={type.type.name}/> */}
                   </li>
                 )
               }
@@ -272,6 +336,7 @@ Pokemon.propTypes = {
   name: PropTypes.string,
   sprites: PropTypes.object,
   flavor_text_entries: PropTypes.array,
+  types: PropTypes.array,
 }
 
 const Error = () => {

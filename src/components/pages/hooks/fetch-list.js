@@ -2,36 +2,50 @@ import { useState, useEffect, useCallback } from 'react';
 
 export const useFetch = (raw_api, init_url) => {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [pokemon, setPokemon] = useState([]);
   const [next, setNext] = useState('');
   const [prev, setPrev] = useState('');
 
   const getPokemon = useCallback(async () => {
     const response = await fetch(init_url);
-    const data = await response.json();
+    
+    if (response.status >= 200 && response.status <= 299) {
+      const data = await response.json();
+      setNext(data.next);
+      setPrev(data.previous);
 
-    setNext(data.next);
-    setPrev(data.previous);
+      const pokemonObject = (result) => {
+        setPokemon([]);
+        result.forEach(
+          async (pokemon) => {
+            const response = await fetch(`${raw_api}${pokemon.name}`);
 
-    const pokemonObject = (result) => {
-      setPokemon([]);
-      result.forEach(
-        async (pokemon) => {
-          const response = await fetch(`${raw_api}${pokemon.name}`);
-          const data = await response.json();
+            if (response.status >= 200 && response.status <= 299) {
+              const data = await response.json();
 
-          setPokemon(
-            // currentList => [...currentList, data]
-            // [data]
-            currentList => [...currentList, data]
-          );
+              setPokemon(
+                currentList => [...currentList, data]
+              );
+              
+            }
 
-          setLoading(false);
-        }
-      )
+            else {
+              setError(true);
+            }
+            
+            setLoading(false);
+          }
+        )
+      }
+
+      pokemonObject(data.results);
     }
 
-    pokemonObject(data.results);
+    else {
+      setLoading(false);
+      setError(true);
+    }
 
 
   }, [raw_api, init_url]);
@@ -39,7 +53,12 @@ export const useFetch = (raw_api, init_url) => {
 
   useEffect(() => {
     getPokemon();
+
+    if (!error) {
+      return setPokemon([]);
+    }
+
   }, [init_url, getPokemon]);
 
-  return { loading, pokemon, next, prev };
+  return { loading, error, pokemon, next, prev };
 };

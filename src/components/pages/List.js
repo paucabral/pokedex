@@ -6,19 +6,24 @@ import PropTypes from 'prop-types';
 // hook
 import { useFetch } from './hooks/fetch-list';
 // data
-import { pokeapi_pokemon_list, pokeapi_complete_pokemon_list } from '../../data/api';
+import { pokeapi_pokemon_list, pokeapi_pokemon_info } from '../../data/api';
 
 const LoadContext = React.createContext();
 
 const List = () => {
-  const [url, setUrl] = useState(pokeapi_pokemon_list);
+  const info = pokeapi_pokemon_info;
+  // const [url, setUrl] = useState(pokeapi_pokemon_list);
+  const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/900/");
 
-  const { loading, pokemon, next, prev } = useFetch(pokeapi_pokemon_list, url)
-
+  const { loading, error, pokemon, next, prev } = useFetch(info, url)
+  
   return (
     <React.Fragment>
       <h3>List</h3>
       <section>
+        {
+          error && <Error />
+        }
         {
           loading ? 'loading...' :
             pokemon.map(
@@ -104,6 +109,16 @@ const Load = () => {
 
     </React.Fragment>
   )
+}
+
+const Error = () => {
+  return (
+    <React.Fragment>
+      <div>
+        <p>There was an error.</p>
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default List;

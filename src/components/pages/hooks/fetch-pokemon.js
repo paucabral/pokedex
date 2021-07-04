@@ -49,7 +49,7 @@ export const useFetch = (url) => {
     if (!error) {
       return getPokemon([]);
     }
-  }, [url, getPokemon]);
+  }, [url, getPokemon, error]);
 
   return { loading, error, pokemon, info };
 };

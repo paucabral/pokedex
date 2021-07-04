@@ -1,6 +1,6 @@
 import React from 'react';
 // react router dom
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // prop types
 import PropTypes from 'prop-types';
 // hook

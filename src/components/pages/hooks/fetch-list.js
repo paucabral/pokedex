@@ -56,7 +56,7 @@ export const useFetch = (raw_api, init_url) => {
       return getPokemon([]);
     }
 
-  }, [init_url, getPokemon]);
+  }, [init_url, getPokemon, error]);
 
   return { loading, error, pokemon, next, prev };
 };

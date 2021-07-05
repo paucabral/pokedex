@@ -28,7 +28,7 @@ const List = () => {
               pokemon.map(
                 (pokemon) => {
                   return (
-                    <div className="col container-fluid col-md-4">
+                    <div key={pokemon.id} className="col container-fluid col-md-4">
                       <Pokemon key={pokemon.id} {...pokemon} />
                     </div>  
                   )

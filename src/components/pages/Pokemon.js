@@ -27,26 +27,6 @@ import rock from '../../assets/pokemon-types/rock.png';
 import steel from '../../assets/pokemon-types/steel.png';
 import water from '../../assets/pokemon-types/water.png';
 
-import BUG from '../../assets/pokemon-types/type_BUG.png';
-import DARK from '../../assets/pokemon-types/type_DARK.png';
-import DRAGON from '../../assets/pokemon-types/type_DRAGON.png';
-import ELECTRIC from '../../assets/pokemon-types/type_ELECTRIC.png';
-import FAIRY from '../../assets/pokemon-types/type_FAIRY.png';
-import FIGHTING from '../../assets/pokemon-types/type_FIGHTING.png';
-import FIRE from '../../assets/pokemon-types/type_FIRE.png';
-import FLYING from '../../assets/pokemon-types/type_FLYING.png';
-import GHOST from '../../assets/pokemon-types/type_GHOST.png';
-import GRASS from '../../assets/pokemon-types/type_GRASS.png';
-import GROUND from '../../assets/pokemon-types/type_GROUND.png';
-import ICE from '../../assets/pokemon-types/type_ICE.png';
-import NORMAL from '../../assets/pokemon-types/type_NORMAL.png';
-import POISON from '../../assets/pokemon-types/type_POISON.png';
-import PSYCHIC from '../../assets/pokemon-types/type_PSYCHIC.png';
-import ROCK from '../../assets/pokemon-types/type_ROCK.png';
-import STEEL from '../../assets/pokemon-types/type_STEEL.png';
-import WATER from '../../assets/pokemon-types/type_WATER.png';
-import UNKNOWN from '../../assets/pokemon-types/type_.png';
-
 const InfoContext = React.createContext();
 
 const Pokemon = () => {
@@ -162,82 +142,62 @@ const Info = (info) => {
   const types = details.types;
 
   let type_img;
-  let type_label;
   const typeDisplay = (type) => {
     if (type === "bug") {
       type_img = bug;
-      type_label = BUG;
     }
     else if (type === "dark") {
       type_img = dark;
-      type_label = DARK;
     }
     else if (type === "dragon") {
       type_img = dragon;
-      type_label = DRAGON;
     }
     else if (type === "electric") {
       type_img = electric;
-      type_label = ELECTRIC;
     }
     else if (type === "fairy") {
       type_img = fairy;
-      type_label = FAIRY;
     }
     else if (type === "fighting") {
       type_img = fighting;
-      type_label = FIGHTING;
     }
     else if (type === "fire") {
       type_img = fire;
-      type_label = FIRE;
     }
     else if (type === "flying") {
       type_img = flying;
-      type_label = FLYING;
     }
     else if (type === "ghost") {
       type_img = ghost;
-      type_label = GHOST;
     }
     else if (type === "grass") {
       type_img = grass;
-      type_label = GRASS;
     }
     else if (type === "ground") {
       type_img = ground;
-      type_label = GROUND;
     }
     else if (type === "ice") {
       type_img = ice;
-      type_label = ICE;
     }
     else if (type === "normal") {
       type_img = normal;
-      type_label = NORMAL;
     }
     else if (type === "poison") {
       type_img = poison;
-      type_label = POISON;
     }
     else if (type === "psychic") {
       type_img = psychic;
-      type_label = PSYCHIC;
     }
     else if (type === "rock") {
       type_img = rock;
-      type_label = ROCK;
     }
     else if (type === "steel") {
       type_img = steel;
-      type_label = STEEL;
     }
     else if (type === "water") {
       type_img = water;
-      type_label = WATER;
     }
     else {
-      type_label = UNKNOWN;
     }
   }
 

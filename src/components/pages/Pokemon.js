@@ -121,7 +121,7 @@ const Img = (pokemon) => {
   return (
     <React.Fragment>
       {types && typeDisplay(types[0].type.name)}
-      <div className="card" style={{ width: "18rem", backgroundColor: type_bg }}>
+      <div className="card" style={{ width: "20rem", backgroundColor: type_bg }}>
         <h6>#{id}</h6>
         <img src={image} alt={name}/>
       </div>
@@ -236,25 +236,21 @@ const Info = (info) => {
 
   return (
     <React.Fragment>
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card" style={{ width: "20rem", display: "flex", justifyContent: "center" }}>
         <h3>{name}</h3>
 
-        <ul>
+        <ul className="noBullet">
           {
             types &&
             types.map(
               (type) => {
                 typeDisplay(type.type.name);
                 return (
-                  <li key={type.slot} className="noBullet">
-                    <div className="container icon">
-                      <img width="15%" src={type_img} alt={type.type.name}/>
-                      <br/>
-                      <div className={`label ${type.type.name}`}>
-                        {type.type.name}
-                      </div>
+                  <li key={type.slot} className="label">
+                    <div className="icon">
+                      <img width="35%" src={type_img} alt={type.type.name}/>
                     </div>
-                    {/* <img width="25%" src={type_label} alt={type.type.name}/> */}
+                    <span className={`label ${type.type.name}`}>{type.type.name}</span>
                   </li>
                 )
               }

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // hook
 import { useFetch } from './hooks/fetch-list';
 // data
-import { pokeapi_pokemon_list, pokeapi_pokemon_info } from '../../data/api';
+import { pokeapi_pokemon_list, pokeapi_pokemon_info, pokeapi_complete_pokemon_list } from '../../data/api';
 
 const LoadContext = React.createContext();
 
@@ -17,19 +17,25 @@ const List = () => {
   const { loading, error, pokemon, next, prev } = useFetch(info, url)
   return (
     <React.Fragment>
+      <button onClick={() => setUrl(pokeapi_complete_pokemon_list)}>Render All</button>
+
       <h3>List</h3>
-      <section>
-        {
-          error && <Error />
-        }
-        {
-          loading ? 'loading...' :
-            pokemon.map(
-              (pokemon) => {
-                return <Pokemon key={pokemon.id} {...pokemon} />
-              }
-            )
-        }
+      <section className="container-fluid col-lg-12">
+        <div className="row mainList">
+          <div className="col container-fluid">
+            {
+              error && <Error />
+            }
+            {
+              loading ? 'loading...' :
+                pokemon.map(
+                  (pokemon) => {
+                    return <Pokemon key={pokemon.id} {...pokemon} />
+                  }
+                )
+            }
+          </div>
+        </div>
       </section>
 
       <LoadContext.Provider value={{ next, prev, useFetch, setUrl }}>
@@ -45,28 +51,28 @@ const Pokemon = (pokemon) => {
   const image = (sprites && sprites.other["official-artwork"].front_default);
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <h6>#{id}</h6>
-      <img src={image} alt={name} />
-      <ul>
-        {
-          types.map(
-            (type) => {
-              return (
-                <li key={type.slot} className="noBullet">
-                  <div className="container icon">
-                    <div className={`label ${type.type.name}`}>
-                      {type.type.name}
-                    </div>
-                  </div>
-                  {/* <img width="25%" src={type_label} alt={type.type.name}/> */}
-                </li>
-              )
-            }
-          )
-        }
-      </ul>
-      <Link to={`/pokemon/${id}`}><h4>{name}</h4></Link>
+    <div className="card mainCard">
+      <div className="card upperCard">
+        <h6 className="cardID">ID: {id}</h6>
+        <img src={image} alt={name} />
+      </div>
+      <div className="card lowerCard">
+        <ul className="noBullet">
+          {
+            types &&
+            types.map(
+              (type) => {
+                return (
+                  <li key={type.slot} className={`label ${type.type.name}`}>
+                    {type.type.name}
+                  </li>
+                )
+              }
+            )
+          }
+        </ul>
+        <Link to={`/pokemon/${id}`} className="name clickName btn btn-dark"><h4 className="name" style={{ alignContent: 'center'}}>{name}</h4></Link>
+      </div>
     </div>
   )
 }

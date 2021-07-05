@@ -38,14 +38,82 @@
 }
 
 /* Pokemon Types Icons */
+.name {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.clickName {
+  display: flex;
+  margin: auto;
+  margin-bottom: 1rem;
+  justify-content: center;
+  width: 60%;
+  border-radius: 2rem;
+  background-color: rgb(16, 16, 19);
+}
+
+.mainList {
+  display: flex;
+}
+.mainCard {
+  width: 20rem;
+  border-radius: 1.5rem;
+  background-color: #595761;
+  border-style: none;
+  margin: 1em;
+}
+
+.upperCard {
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  border-style: none;
+  background: none;
+}
+
+.cardID {
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #edf0e6;
+}
+
+.lowerCard {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  border-style: none;
+  background-color: #282c34;
+}
+
+.card .name:link {
+  text-decoration: none;
+}
+
 .noBullet {
+  margin-top: 1rem;
   list-style-type: none;
+  align-items: center;
+  display: flex;
+  /* justify-content: center; */
+}
+
+.noBullet li {
   display: inline;
+  margin: 0.5rem;
+}
+
+.noBullet span {
+  display: flex;
+  justify-content: center;
+  width: 70%;
 }
 
 .icon {
   align-items: center;
-  margin: auto;
+  margin-bottom: 0.5rem;
+  justify-content: center;
 }
 
 .label {

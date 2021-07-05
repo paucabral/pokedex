@@ -18,23 +18,23 @@ const List = () => {
   return (
     <React.Fragment>
       <button onClick={() => setUrl(pokeapi_complete_pokemon_list)}>Render All</button>
-
-      <h3>List</h3>
-      <section className="container-fluid col-lg-12">
-        <div className="row mainList">
-          <div className="col container-fluid">
-            {
-              error && <Error />
-            }
-            {
-              loading ? 'loading...' :
-                pokemon.map(
-                  (pokemon) => {
-                    return <Pokemon key={pokemon.id} {...pokemon} />
-                  }
-                )
-            }
-          </div>
+      <section className="container-fluid">
+        <div className="row">
+          {
+            error && <Error />
+          }
+          {
+            loading ? 'loading...' :
+              pokemon.map(
+                (pokemon) => {
+                  return (
+                    <div className="col container-fluid col-md-4">
+                      <Pokemon key={pokemon.id} {...pokemon} />
+                    </div>  
+                  )
+                }
+              )
+          }
         </div>
       </section>
 
@@ -51,7 +51,7 @@ const Pokemon = (pokemon) => {
   const image = (sprites && sprites.other["official-artwork"].front_default);
 
   return (
-    <div className="card mainCard">
+    <div className="card mainCard mb-3">
       <div className="card upperCard">
         <h6 className="cardID">ID: {id}</h6>
         <img src={image} alt={name} />

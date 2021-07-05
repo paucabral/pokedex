@@ -57,12 +57,10 @@
 
 .mainList {
   display: flex;
+  flex-wrap: wrap;
 }
+
 .mainCard {
-  min-width: 20rem;
-  max-width: 20rem;
-  min-height: 69vh;
-  max-height: 69vh;
   border-radius: 1.5rem;
   background-color: #595761;
   border-style: none;
@@ -83,8 +81,6 @@
 }
 
 .lowerCard {
-  min-height: 20vh;
-  max-height: 20vh;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1.5rem;
@@ -100,9 +96,9 @@
 .noBullet {
   margin-top: 1rem;
   list-style-type: none;
-  align-items: center;
   display: flex;
-  /* justify-content: center; */
+  margin-left: -1.7rem;
+  justify-content: center;
 }
 
 .noBullet li {

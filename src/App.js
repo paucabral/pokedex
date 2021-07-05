@@ -9,30 +9,38 @@ import Home from './components/pages/Home';
 import List from './components/pages/List';
 import Pokemon from './components/pages/Pokemon';
 import NotFound from './components/error/NotFound';
+import { bg_img } from './data/api';
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Navigation />
-      </div>
+      <div style={{ backgroundImage: `url(${bg_img})`}}>
 
-      <div className="container" style={{ marginTop: "5rem" }}>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/list">
-            <List />
-          </Route>
-          <Route path="/pokemon/:id">
-            <Pokemon />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
+        <div className="container">
+          <Navigation />
+        </div>
+
+        <div className="container" style={{ paddingTop: "5rem" }}>
+          <div>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/list">
+                <List />
+              </Route>
+              <Route path="/pokemon/:id">
+                <Pokemon />
+              </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      
       </div>
+      
     </Router>
   );
 }

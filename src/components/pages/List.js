@@ -109,15 +109,16 @@ const Load = () => {
 
   return (
     <React.Fragment>
-      {
-        buttons.prev ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" onClick={handleSubmitPrev}>Prev</button> :
-          <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" disabled>Prev</button>
-      }   
-      {
-        buttons.next ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-primary" onClick={handleSubmitNext}>Next</button> :
-          <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-primary" disabled>Next</button>
-      }
-
+      <div className="pageButtons">
+        {
+          buttons.prev ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" onClick={handleSubmitPrev}>◄ Prev</button> :
+            <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" disabled>Prev</button>
+        }   
+        {
+          buttons.next ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-primary" onClick={handleSubmitNext}>Next ►</button> :
+            <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-primary" disabled>Next</button>
+        }
+      </div>
     </React.Fragment>
   )
 }

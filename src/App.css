@@ -37,7 +37,32 @@
   }
 }
 
-/* Pokemon Types Icons */
+/* Navbar */
+.navigation {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-family: "Roboto Cn", sans-serif;
+}
+
+/* Page Buttons */
+.pageButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.pageButtons button {
+  display: flex;
+  justify-content: center;
+  width: 20rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.navigation h2 {
+  font-weight: 1000;
+}
+
+/* Card Items */
 .name {
   text-decoration: none;
   text-transform: uppercase;
@@ -93,6 +118,7 @@
   text-decoration: none;
 }
 
+/* Pokemon Types Icons */
 .noBullet {
   margin-top: 1rem;
   list-style-type: none;

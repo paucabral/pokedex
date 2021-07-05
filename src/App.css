@@ -47,6 +47,7 @@
 .clickName {
   display: flex;
   margin: auto;
+  margin-top: -0.1em;
   margin-bottom: 1rem;
   justify-content: center;
   width: 60%;
@@ -58,7 +59,10 @@
   display: flex;
 }
 .mainCard {
-  width: 20rem;
+  min-width: 20rem;
+  max-width: 20rem;
+  min-height: 69vh;
+  max-height: 69vh;
   border-radius: 1.5rem;
   background-color: #595761;
   border-style: none;
@@ -79,6 +83,8 @@
 }
 
 .lowerCard {
+  min-height: 20vh;
+  max-height: 20vh;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1.5rem;

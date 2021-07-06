@@ -27,11 +27,18 @@ const List = () => {
           </div>
           <div className="form-group container justify-content-end" style={{ marginLeft: "1rem", width: "60%" }}>
             <form className="form-inline" onSubmit={ (e) => e.preventDefault() }>
-              <input className="form-control" type="text" style={{ marginRight: "0.5em" }} onChange={(e) => {setSearch(e.target.value)}}/>
+              <input className="form-control" placeholder="Pokemon Name or ID" type="text" style={{ marginRight: "0.5em" }} onChange={(e) => {setSearch(e.target.value)}}
+              onKeyPress={event => {
+                if (event.key === 'Enter') {
+                  if (search !== '') {
+                    window.location.href = `/pokemon/${search.toLowerCase()}`;
+                  }
+                }
+              }}/>
               {/* <button className="btn">
                 <Link to={`/pokemon/${search}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
               </button> */}
-              <Link to={`/pokemon/${search}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
+              <Link to={`/pokemon/${search.toLowerCase()}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
             </form>
           </div>
         </div>

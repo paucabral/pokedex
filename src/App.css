@@ -37,11 +37,37 @@
   }
 }
 
+/* Background */
+
+.logoLoad {
+  width: 50em;
+  opacity: 0.3;
+  position: fixed;
+  right: -15%;
+  bottom: -20%;
+  z-index: 0;
+  /* animation: App-logo-spin infinite 15s linear; */
+}
+
 /* Navbar */
 .navigation {
   font-size: 1.5em;
   text-transform: uppercase;
   font-family: "Roboto Cn", sans-serif;
+}
+
+.brand {
+  margin: 0.5rem;
+  justify-content: left;
+}
+
+.navigation h2 {
+  font-weight: 1000;
+}
+
+.navigation .navigationItem {
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 /* Page Buttons */
@@ -58,10 +84,6 @@
   font-weight: bold;
 }
 
-.navigation h2 {
-  font-weight: 1000;
-}
-
 /* Card Items */
 .name {
   text-decoration: none;
@@ -74,6 +96,7 @@
   margin: auto;
   margin-top: -0.1em;
   margin-bottom: 1rem;
+  text-align: center;
   justify-content: center;
   width: 60%;
   border-radius: 2rem;
@@ -90,6 +113,7 @@
   background-color: #595761;
   border-style: none;
   margin: 1em;
+  box-shadow: 0 0 1em #111111;
 }
 
 .upperCard {
@@ -253,4 +277,11 @@
 .water {
   background: #539ddf;
   box-shadow: 0 0 20px #539ddf;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .logoLoad {
+    width: 200%;
+  }
 }

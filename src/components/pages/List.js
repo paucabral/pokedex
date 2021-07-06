@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import { useFetch } from './hooks/fetch-list';
 // data
 import { pokeapi_pokemon_list, pokeapi_pokemon_info, pokeapi_complete_pokemon_list } from '../../data/api';
+// Loading Component
+import Loading from '../loading/Loading'
 
 const LoadContext = React.createContext();
 
@@ -24,7 +26,10 @@ const List = () => {
             error && <Error />
           }
           {
-            loading ? 'loading...' :
+            loading ? 
+            <div style={{ height: "100vh" }}>
+              <Loading/>
+            </div> :
               pokemon.map(
                 (pokemon) => {
                   return (
@@ -37,10 +42,13 @@ const List = () => {
           }
         </div>
       </section>
-
-      <LoadContext.Provider value={{ next, prev, useFetch, setUrl }}>
-        <Load />
-      </LoadContext.Provider>
+      
+      {
+        loading ? "" :
+        <LoadContext.Provider value={{ next, prev, useFetch, setUrl }}>
+          <Load />
+        </LoadContext.Provider>
+      }
 
     </React.Fragment>
   )

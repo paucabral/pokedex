@@ -19,7 +19,8 @@ const List = () => {
   const { loading, error, pokemon, next, prev } = useFetch(info, url)
   return (
     <React.Fragment>
-      <button className="btn btn-primary" onClick={() => setUrl(pokeapi_complete_pokemon_list)}>Display All</button>
+      <button className="btn btn-success" style={{ fontWeight: "bold" }} onClick={() => setUrl(pokeapi_complete_pokemon_list)}>Display All</button>
+
       <section className="container-fluid">
         <div className="row">
           {
@@ -119,8 +120,8 @@ const Load = () => {
     <React.Fragment>
       <div className="pageButtons">
         {
-          buttons.prev ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" onClick={handleSubmitPrev}>◄ Prev</button> :
-            <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-secondary" disabled>Prev</button>
+          buttons.prev ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-danger" onClick={handleSubmitPrev}>◄ Prev</button> :
+            <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-danger" disabled>Prev</button>
         }   
         {
           buttons.next ? <button type="button" style={{ color: 'white', borderRadius: "5px", margin: "1rem" }} className="btn btn-primary" onClick={handleSubmitNext}>Next ►</button> :

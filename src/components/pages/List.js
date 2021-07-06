@@ -9,6 +9,9 @@ import { useFetch } from './hooks/fetch-list';
 import { pokeapi_pokemon_list, pokeapi_pokemon_info, pokeapi_complete_pokemon_list } from '../../data/api';
 // Loading Component
 import Loading from '../loading/Loading'
+// Font Awesome Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faTh } from '@fortawesome/free-solid-svg-icons'
 
 const LoadContext = React.createContext();
 
@@ -20,14 +23,14 @@ const List = () => {
   const { loading, error, pokemon, next, prev } = useFetch(info, url)
   return (
     <React.Fragment>
-      <div className="container-fluid">
+      <div className="">
         <div className="row">
-          <div>
-            <button className="btn btn-success" style={{ fontWeight: "bold" }} onClick={() => setUrl(pokeapi_complete_pokemon_list)}>DISPLAY ALL</button>
+          <div class="col" style={{ marginTop: "0.5em" }}>
+            <button className="btn btn-success" style={{ fontWeight: "bold" }} onClick={() => setUrl(pokeapi_complete_pokemon_list)}><FontAwesomeIcon icon={faTh}/> DISPLAY ALL</button>
           </div>
-          <div className="form-group container justify-content-end" style={{ marginLeft: "1rem", width: "60%" }}>
+          <div className="form-group col-auto container-fluid">
             <form className="form-inline" onSubmit={ (e) => e.preventDefault() }>
-              <input className="form-control" placeholder="Pokemon Name or ID" type="text" style={{ marginRight: "0.5em" }} onChange={(e) => {setSearch(e.target.value)}}
+              <input className="form-control" placeholder="Pokémon Name or ID" type="text" onChange={(e) => {setSearch(e.target.value)}}
               onKeyPress={event => {
                 if (event.key === 'Enter') {
                   if (search !== '') {
@@ -36,7 +39,7 @@ const List = () => {
                 }
               }}/>
               <button className="btn">
-                <Link to={ search ? `/pokemon/${search}` : "#"} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
+                <Link to={ search ? `/pokemon/${search}` : "#"} className="btn btn-info" style={{ fontWeight: "bold" }}><FontAwesomeIcon icon={faSearch}/> SEARCH</Link>
               </button>
               {/* <Link to={`/pokemon/${search.toLowerCase()}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link> */}
             </form>

@@ -35,10 +35,10 @@ const List = () => {
                   }
                 }
               }}/>
-              {/* <button className="btn">
-                <Link to={`/pokemon/${search}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
-              </button> */}
-              <Link to={`/pokemon/${search.toLowerCase()}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
+              <button className="btn">
+                <Link to={ search ? `/pokemon/${search}` : "#"} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
+              </button>
+              {/* <Link to={`/pokemon/${search.toLowerCase()}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link> */}
             </form>
           </div>
         </div>

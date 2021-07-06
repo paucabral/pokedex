@@ -12,7 +12,7 @@ import Loading from '../loading/Loading'
 // Font Awesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faTh } from '@fortawesome/free-solid-svg-icons'
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const LoadContext = React.createContext();
 
@@ -33,7 +33,7 @@ const List = () => {
             </Nav>
             <Nav style={{ marginTop: "1em" }}>
               <form className="input-group mb-3" onSubmit={ (e) => e.preventDefault() }>
-                <input type="text" className="form-control" placeholder="Pokémon Name or ID" type="text" onChange={(e) => {setSearch(e.target.value)}}
+                <input type="text" className="form-control" placeholder="Pokémon Name or ID" onChange={(e) => {setSearch(e.target.value)}}
                 onKeyPress={event => {
                   if (event.key === 'Enter') {
                     if (search !== '') {

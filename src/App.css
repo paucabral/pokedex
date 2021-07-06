@@ -70,6 +70,12 @@
   font-weight: bold;
 }
 
+.brandLogo:hover {
+  filter: saturate(2);
+  transform: scale(1.1);
+  animation: linear;
+}
+
 /* Page Buttons */
 .pageButtons {
   display: flex;

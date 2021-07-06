@@ -19,7 +19,7 @@ const List = () => {
   const { loading, error, pokemon, next, prev } = useFetch(info, url)
   return (
     <React.Fragment>
-      <button onClick={() => setUrl(pokeapi_complete_pokemon_list)}>Render All</button>
+      <button className="btn btn-primary" onClick={() => setUrl(pokeapi_complete_pokemon_list)}>Display All</button>
       <section className="container-fluid">
         <div className="row">
           {

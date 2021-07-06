@@ -26,25 +26,25 @@ const List = () => {
     <React.Fragment>
       <div>
         <Navbar className="navbar-dark" expand="lg">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ marginBottom: "1em" }}/>
+          <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="mr-auto">
               <button className="btn btn-success" style={{ fontWeight: "bold" }} onClick={() => setUrl(pokeapi_complete_pokemon_list)}><FontAwesomeIcon icon={faTh}/> DISPLAY ALL</button>
             </Nav>
-            <Nav>
+            <Nav style={{ marginTop: "1em" }}>
               <form className="input-group mb-3" onSubmit={ (e) => e.preventDefault() }>
-              <input type="text" className="form-control" placeholder="Pokémon Name or ID" type="text" onChange={(e) => {setSearch(e.target.value)}}
-              onKeyPress={event => {
-                if (event.key === 'Enter') {
-                  if (search !== '') {
-                    window.location.href = `/pokemon/${search.toLowerCase()}`;
+                <input type="text" className="form-control" placeholder="Pokémon Name or ID" type="text" onChange={(e) => {setSearch(e.target.value)}}
+                onKeyPress={event => {
+                  if (event.key === 'Enter') {
+                    if (search !== '') {
+                      window.location.href = `/pokemon/${search.toLowerCase()}`;
+                    }
                   }
-                }
-              }}/>
-              <div className="input-group-append">
-                <button className="btn btn-info" type="submit" > <Link to={ search ? `/pokemon/${search}` : "#"} className="btn-md text-white" style={{ fontWeight: "bold", textDecoration: "none" }}><FontAwesomeIcon icon={faSearch}/> SEARCH</Link></button>
-              </div>
-            </form>
+                }}/>
+                <div className="input-group-append">
+                  <button className="btn btn-info" type="submit" > <Link to={ search ? `/pokemon/${search}` : "#"} className="btn-md text-white" style={{ fontWeight: "bold", textDecoration: "none" }}><FontAwesomeIcon icon={faSearch}/> SEARCH</Link></button>
+                </div>
+              </form>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

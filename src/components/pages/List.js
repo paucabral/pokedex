@@ -15,12 +15,28 @@ const LoadContext = React.createContext();
 const List = () => {
   const info = pokeapi_pokemon_info;
   const [url, setUrl] = useState(pokeapi_pokemon_list);
+  const [search, setSearch] = useState('');
 
   const { loading, error, pokemon, next, prev } = useFetch(info, url)
   return (
     <React.Fragment>
-      <button className="btn btn-success" style={{ fontWeight: "bold" }} onClick={() => setUrl(pokeapi_complete_pokemon_list)}>Display All</button>
-
+      <div className="container-fluid">
+        <div className="row">
+          <div>
+            <button className="btn btn-success" style={{ fontWeight: "bold" }} onClick={() => setUrl(pokeapi_complete_pokemon_list)}>DISPLAY ALL</button>
+          </div>
+          <div className="form-group container justify-content-end" style={{ marginLeft: "1rem", width: "60%" }}>
+            <form className="form-inline" onSubmit={ (e) => e.preventDefault() }>
+              <input className="form-control" type="text" style={{ marginRight: "0.5em" }} onChange={(e) => {setSearch(e.target.value)}}/>
+              {/* <button className="btn">
+                <Link to={`/pokemon/${search}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
+              </button> */}
+              <Link to={`/pokemon/${search}`} className="btn btn-info" style={{ fontWeight: "bold" }}>SEARCH</Link>
+            </form>
+          </div>
+        </div>
+      </div>
+      
       <section className="container-fluid">
         <div className="row">
           {

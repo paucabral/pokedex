@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import { useFetch } from './hooks/fetch-pokemon';
 // data
 import { pokeapi_pokemon_info, pokemon_showdown_sprites_directory } from '../../data/api';
+// React Bootstrap
+import { ProgressBar } from 'react-bootstrap/';
 // pokemon-types images
 import bug from '../../assets/pokemon-types/bug.png';
 import dark from '../../assets/pokemon-types/dark.png';
@@ -141,6 +143,67 @@ const Info = (info) => {
   const stats = details.stats;
   const types = details.types;
 
+  let type_bg;
+  const typeProgress = (type) => {
+    if (type === "bug") {
+      type_bg = "rgb(144, 193, 44, .8)";
+    }
+    else if (type === "dark") {
+      type_bg = "rgba(90, 83, 102, .8)";
+    }
+    else if (type === "dragon") {
+      type_bg = "rgba(9, 109, 196, .8)";
+    }
+    else if (type === "electric") {
+      type_bg = "rgba(243, 210, 59, .8)";
+    }
+    else if (type === "fairy") {
+      type_bg = "rgba(236, 143, 230, .8)";
+    }
+    else if (type === "fighting") {
+      type_bg = "rgba(206, 64, 105, .8)";
+    }
+    else if (type === "fire") {
+      type_bg = "rgba(255, 156, 84, .8)";
+    }
+    else if (type === "flying") {
+      type_bg = "rgba(146, 170, 222, .8)";
+    }
+    else if (type === "ghost") {
+      type_bg = "rgba(82, 105, 172, .8)";
+    }
+    else if (type === "grass") {
+      type_bg = "rgba(99, 187, 91, .8)";
+    }
+    else if (type === "ground") {
+      type_bg = "rgba(217, 119, 70, .8)";
+    }
+    else if (type === "ice") {
+      type_bg = "rgba(116, 206, 192, .8)";
+    }
+    else if (type === "normal") {
+      type_bg = "rgba(144, 153, 161, .8)";
+    }
+    else if (type === "poison") {
+      type_bg = "rgba(171, 106, 200, .8)";
+    }
+    else if (type === "psychic") {
+      type_bg = "rgba(249, 113, 118, .8)";
+    }
+    else if (type === "rock") {
+      type_bg = "rgba(199, 183, 139, .8)";
+    }
+    else if (type === "steel") {
+      type_bg = "rgba(90, 142, 161, .8)";
+    }
+    else if (type === "water") {
+      type_bg = "rgba(77, 144, 213, .8)";
+    }
+    else {
+      type_bg = "rgba(93, 84, 118, .8)";
+    }
+  }
+
   let type_img;
   const typeDisplay = (type) => {
     if (type === "bug") {
@@ -267,7 +330,7 @@ const Info = (info) => {
         <div>
           <h5>Base Stat</h5>
           <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
-          <ul>
+          <ul style={{ listStyleType: "none" }}>
             {
               stats &&
               stats.map(
@@ -275,6 +338,17 @@ const Info = (info) => {
                   return (
                     <li key={stat.stat.name}>
                       {stat.stat.name}: {stat.base_stat}
+                      
+                      {/* <ProgressBar now={stat.base_stat} /> */}
+
+                      {
+                        typeProgress(types[0].type.name)
+                      }
+
+                      <div className="progress" style={{ borderRadius: "20px"}}>
+                        <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
                     </li>
                   )
                 }

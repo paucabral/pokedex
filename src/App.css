@@ -195,6 +195,11 @@
   cursor: pointer;
 }
 
+.progressLevel:hover {
+  filter: saturate(200%);
+  cursor: pointer;
+}
+
 .bug {
   background: #92bc2c;
   box-shadow: 0 0 20px #92bc2c;

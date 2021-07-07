@@ -345,7 +345,7 @@ const Info = (info) => {
                         typeProgress(types[0].type.name)
                       }
 
-                      <div className="progress" style={{ borderRadius: "20px"}}>
+                      <div className="progress" style={{ borderRadius: "20px", height:"0.8em"}}>
                         <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
 

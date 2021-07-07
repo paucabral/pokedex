@@ -40,7 +40,7 @@ const Footer = () => {
                               <Link to={{ pathname: "https://paucabral.github.io" }} target="_blank" style={{ textDecoration: "none" }}><h3 class="text-white mb-md-0 mb-5 bold-text">PAU<span style={{ fontFamily: "Roboto Cn, sans-serif", fontWeight: "1000", color: "#0abdc6" }}>CABRAL</span></h3></Link>
                           </div>
                           <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                              <h6 className="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
+                              <h6 className="mb-3 mb-lg-4 bold-text text-muted"><b>MENU</b></h6>
                               <ul className="list-unstyled">
                                   <li>
                                     <Link to={{ pathname: "https://paucabral.github.io" }} target="_blank" className="text-white" style={{ textDecoration: "none" }}>Home</Link>

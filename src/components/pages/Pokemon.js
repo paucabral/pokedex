@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 import { useFetch } from './hooks/fetch-pokemon';
 // data
 import { pokeapi_pokemon_info, pokemon_showdown_sprites_directory } from '../../data/api';
-// React Bootstrap
-import { ProgressBar } from 'react-bootstrap/';
 // pokemon-types images
 import bug from '../../assets/pokemon-types/bug.png';
 import dark from '../../assets/pokemon-types/dark.png';

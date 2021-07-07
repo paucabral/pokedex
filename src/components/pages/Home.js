@@ -3,7 +3,9 @@ import React from 'react'
 const Home = () => {
   return (
     <React.Fragment>
-      <h3>home</h3>
+      <div style={{ height: "100vh"}}>
+        <h3>home</h3>
+      </div>
     </React.Fragment>
   )
 }

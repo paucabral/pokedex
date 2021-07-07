@@ -5,6 +5,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // components
 import Navigation from './components/pages/Navigation';
+import Footer from './components/pages/Footer';
 import Home from './components/pages/Home';
 import List from './components/pages/List';
 import Pokemon from './components/pages/Pokemon';
@@ -22,7 +23,7 @@ function App() {
           <Navigation />
         </div>
 
-        <div className="container" style={{ paddingTop: "5.5rem" }}>
+        <div className="container" style={{ paddingTop: "5.5rem", paddingBottom: "3rem" }}>
           <div>
             <Switch>
               <Route exact path="/">
@@ -39,6 +40,10 @@ function App() {
               </Route>
             </Switch>
           </div>
+        </div>
+
+        <div className="container">
+          <Footer />
         </div>
         
       </div>

@@ -413,6 +413,15 @@
   box-shadow: 0 0 20px #539ddf;
 }
 
+/* Individual Entries */
+.pokemonImg {
+  border-radius: 1rem;
+}
+
+.pokemonInfo {
+  border-radius: 1rem;
+}
+
 /* Footer */
 .footer-fixed {
   background-color: #000;
@@ -428,8 +437,13 @@
     border-top-right-radius: 2rem;
   }
 
+  .pokemonImg img {
+    z-index: 1000;
+  }
+
   .pokemonInfo {
-    margin-top: -1.3rem;
+    margin-top: -3.3rem;
+    padding-top: 1.5rem;
     border-radius: 2rem;
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;

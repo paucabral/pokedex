@@ -47,11 +47,11 @@ const Pokemon = () => {
               (
                 <Container fluid="md" style={{ display: "flex", justifyContent: "center" }}>
                   <Row xs={1} md={2}>
-                    <Col >
-                      <Img {...pokemon} />
+                    <Col style={{ display: "flex", justifyContent: "center" }}>
+                      <Img {...pokemon}/>
                     </Col>
-                    <Col >
-                      <Info {...info} />
+                    <Col style={{ display: "flex", justifyContent: "center" }}>
+                      <Info {...info}/>
                     </Col>
                   </Row>
                 </Container>
@@ -70,69 +70,69 @@ const Img = (pokemon) => {
   let type_bg;
   const typeDisplay = (type) => {
     if (type === "bug") {
-      type_bg = "rgb(144, 193, 44, .8)";
+      type_bg = "rgb(144, 193, 44, 1)";
     }
     else if (type === "dark") {
-      type_bg = "rgba(90, 83, 102, .8)";
+      type_bg = "rgba(90, 83, 102, 1)";
     }
     else if (type === "dragon") {
-      type_bg = "rgba(9, 109, 196, .8)";
+      type_bg = "rgba(9, 109, 196, 1)";
     }
     else if (type === "electric") {
-      type_bg = "rgba(243, 210, 59, .8)";
+      type_bg = "rgba(243, 210, 59, 1)";
     }
     else if (type === "fairy") {
-      type_bg = "rgba(236, 143, 230, .8)";
+      type_bg = "rgba(236, 143, 230, 1)";
     }
     else if (type === "fighting") {
-      type_bg = "rgba(206, 64, 105, .8)";
+      type_bg = "rgba(206, 64, 105, 1)";
     }
     else if (type === "fire") {
-      type_bg = "rgba(255, 156, 84, .8)";
+      type_bg = "rgba(255, 156, 84, 1)";
     }
     else if (type === "flying") {
-      type_bg = "rgba(146, 170, 222, .8)";
+      type_bg = "rgba(146, 170, 222, 1)";
     }
     else if (type === "ghost") {
-      type_bg = "rgba(82, 105, 172, .8)";
+      type_bg = "rgba(82, 105, 172, 1)";
     }
     else if (type === "grass") {
-      type_bg = "rgba(99, 187, 91, .8)";
+      type_bg = "rgba(99, 187, 91, 1)";
     }
     else if (type === "ground") {
-      type_bg = "rgba(217, 119, 70, .8)";
+      type_bg = "rgba(217, 119, 70, 1)";
     }
     else if (type === "ice") {
-      type_bg = "rgba(116, 206, 192, .8)";
+      type_bg = "rgba(116, 206, 192, 1)";
     }
     else if (type === "normal") {
-      type_bg = "rgba(144, 153, 161, .8)";
+      type_bg = "rgba(144, 153, 161, 1)";
     }
     else if (type === "poison") {
-      type_bg = "rgba(171, 106, 200, .8)";
+      type_bg = "rgba(171, 106, 200, 1)";
     }
     else if (type === "psychic") {
-      type_bg = "rgba(249, 113, 118, .8)";
+      type_bg = "rgba(249, 113, 118, 1)";
     }
     else if (type === "rock") {
-      type_bg = "rgba(199, 183, 139, .8)";
+      type_bg = "rgba(199, 183, 139, 1)";
     }
     else if (type === "steel") {
-      type_bg = "rgba(90, 142, 161, .8)";
+      type_bg = "rgba(90, 142, 161, 1)";
     }
     else if (type === "water") {
-      type_bg = "rgba(77, 144, 213, .8)";
+      type_bg = "rgba(77, 144, 213, 1)";
     }
     else {
-      type_bg = "rgba(93, 84, 118, .8)";
+      type_bg = "rgba(93, 84, 118, 1)";
     }
   }
 
   return (
     <React.Fragment>
       {types && typeDisplay(types[0].type.name)}
-      <div className="card" style={{ backgroundColor: type_bg }}>
-        <h6>#{id}</h6>
+      <div className="card pokemonImg" style={{ backgroundColor: type_bg }}>
+        <h4 className="text-white" style={{ margin: "1rem", fontWeight: "700", textShadow: "#000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px" }}>ID: {id}</h4>
         <img style={{ objectFit: "cover", maxWidth: "100%", height: "auto" }} src={image} alt={name}/>
       </div>
     </React.Fragment>
@@ -142,6 +142,7 @@ const Img = (pokemon) => {
 const Info = (info) => {
   const { flavor_text_entries, habitat, generation } = info;
   const text_entry = (flavor_text_entries && flavor_text_entries[1].flavor_text);
+  const text_entry_cleaned = String(text_entry).replace(/[^a-zA-Z,^é,^. ]/g, " ");
   const place = (habitat && habitat.name);
 
   const pokemon = useContext(InfoContext);
@@ -154,61 +155,61 @@ const Info = (info) => {
   let type_bg;
   const typeProgress = (type) => {
     if (type === "bug") {
-      type_bg = "rgb(144, 193, 44, .8)";
+      type_bg = "rgb(144, 193, 44, 1)";
     }
     else if (type === "dark") {
-      type_bg = "rgba(90, 83, 102, .8)";
+      type_bg = "rgba(90, 83, 102, 1)";
     }
     else if (type === "dragon") {
-      type_bg = "rgba(9, 109, 196, .8)";
+      type_bg = "rgba(9, 109, 196, 1)";
     }
     else if (type === "electric") {
-      type_bg = "rgba(243, 210, 59, .8)";
+      type_bg = "rgba(243, 210, 59, 1)";
     }
     else if (type === "fairy") {
-      type_bg = "rgba(236, 143, 230, .8)";
+      type_bg = "rgba(236, 143, 230, 1)";
     }
     else if (type === "fighting") {
-      type_bg = "rgba(206, 64, 105, .8)";
+      type_bg = "rgba(206, 64, 105, 1)";
     }
     else if (type === "fire") {
-      type_bg = "rgba(255, 156, 84, .8)";
+      type_bg = "rgba(255, 156, 84, 1)";
     }
     else if (type === "flying") {
-      type_bg = "rgba(146, 170, 222, .8)";
+      type_bg = "rgba(146, 170, 222, 1)";
     }
     else if (type === "ghost") {
-      type_bg = "rgba(82, 105, 172, .8)";
+      type_bg = "rgba(82, 105, 172, 1)";
     }
     else if (type === "grass") {
-      type_bg = "rgba(99, 187, 91, .8)";
+      type_bg = "rgba(99, 187, 91, 1)";
     }
     else if (type === "ground") {
-      type_bg = "rgba(217, 119, 70, .8)";
+      type_bg = "rgba(217, 119, 70, 1)";
     }
     else if (type === "ice") {
-      type_bg = "rgba(116, 206, 192, .8)";
+      type_bg = "rgba(116, 206, 192, 1)";
     }
     else if (type === "normal") {
-      type_bg = "rgba(144, 153, 161, .8)";
+      type_bg = "rgba(144, 153, 161, 1)";
     }
     else if (type === "poison") {
-      type_bg = "rgba(171, 106, 200, .8)";
+      type_bg = "rgba(171, 106, 200, 1)";
     }
     else if (type === "psychic") {
-      type_bg = "rgba(249, 113, 118, .8)";
+      type_bg = "rgba(249, 113, 118, 1)";
     }
     else if (type === "rock") {
-      type_bg = "rgba(199, 183, 139, .8)";
+      type_bg = "rgba(199, 183, 139, 1)";
     }
     else if (type === "steel") {
-      type_bg = "rgba(90, 142, 161, .8)";
+      type_bg = "rgba(90, 142, 161, 1)";
     }
     else if (type === "water") {
-      type_bg = "rgba(77, 144, 213, .8)";
+      type_bg = "rgba(77, 144, 213, 1)";
     }
     else {
-      type_bg = "rgba(93, 84, 118, .8)";
+      type_bg = "rgba(93, 84, 118, 1)";
     }
   }
 
@@ -307,25 +308,25 @@ const Info = (info) => {
 
   return (
     <React.Fragment>
-      <div className="card" style={{ display: "flex", justifyContent: "center" }}>
+      <div className="card pokemonInfo" style={{ display: "flex", justifyContent: "center" }}>
         <Container fluid="md">
-          <Row xs={1} md={2} style={{ display: "flex", justifyContent: "center" }}>
+          <Row style={{ display: "flex", justifyContent: "center", marginTop: "1.5rem" }}>
             <Col style={{ display: "flex", justifyContent: "center" }}>
-              <h3>{name}</h3>
+              <h1 style={{ textTransform: "uppercase" }}>{name}</h1>
             </Col>
           </Row>
         </Container>
 
-        <ul className="noBullet">
+        <ul className="noBullet" style={{ marginTop: "0rem" }}>
           {
             types &&
             types.map(
               (type) => {
                 typeDisplay(type.type.name);
                 return (
-                  <li key={type.slot} className="label">
+                  <li key={type.slot} className="label" style={{ height: "4rem" }}>
                     <div className="icon">
-                      <img width="35%" style={{ borderRadius: "50%" }} className={`${type.type.name}Icon`} src={type_img} alt={type.type.name}/>
+                      <img width="35%" style={{ borderRadius: "50%", transition: "200ms all" }} className={`${type.type.name}Icon`} src={type_img} alt={type.type.name}/>
                     </div>
                     <span className={`label ${type.type.name}`}>{type.type.name}</span>
                   </li>
@@ -336,58 +337,55 @@ const Info = (info) => {
         </ul>
 
         <Container fluid="md">
-          <Row md={2} style={{ display: "flex", justifyContent: "center" }}>
+          <Row style={{ display: "flex", justifyContent: "center", margin: "0.1em" }}>
             <Col style={{ display: "flex", justifyContent: "center" }}>
-              <p>{text_entry}</p>
+              <p style={{ textAlign: "center" }}>{text_entry_cleaned}</p>
             </Col>
           </Row>
-          <Row xs={1} md={2} style={{ display: "flex", justifyContent: "center" }}>
+          <Row xs={1} md={2} style={{ display: "flex", justifyContent: "center", margin: "0.1em" }}>
             <Col style={{ display: "flex", justifyContent: "center" }}>
-              <p><b>Generation:</b> {gen ? gen : "N/A"}</p>
+              <p style={{ textTransform: "uppercase" }}><b style={{ fontWeight: "700" }}>Generation:</b> {gen ? gen : "N/A"}</p>
             </Col>
             <Col style={{ display: "flex", justifyContent: "center" }}>
-              <p><b>Habitat:</b> {place ? place : "N/A"}</p>
+              <p style={{ textTransform: "uppercase" }}><b style={{ fontWeight: "700" }}>Habitat:</b> {place ? place : "N/A"}</p>
             </Col>
           </Row>
         </Container>
 
-        <Container fluid="lg">
-          <Row>
-            <Col style={{ justifyContent: "center" }}>
-              <div>
-                <h5>Base Stat</h5>
-                <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
-                <ul style={{ listStyleType: "none" }}>
-                  {
-                    stats &&
-                    stats.map(
-                      (stat) => {
-                        return (
-                          <li key={stat.stat.name}>
-                            {stat.stat.name}: {stat.base_stat}
-                            
-                            {/* <ProgressBar now={stat.base_stat} /> */}
+        <Container fluid="md">
+          <Row style={{ margin: "0.1em" }}>
+            <Col style={{ display: "flex", justifyContent: "flex-start", alignItems: "center"}}>
+              <h5 style={{ fontWeight: "700" }}>BASE STATS</h5>
+            </Col>
+            <Col style={{ display: "flex", justifyContent: "flex-end", alignItems: "center"}}>
+              <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
+            </Col>
+          </Row>
+          <Row style={{ margin: "0.1em" ,marginBottom: "2.5rem" }}>
+            <Col>
+              {
+                stats &&
+                stats.map(
+                  (stat) => {
+                    return (
+                      <div key={stat.stat.name} style={{ textTransform: "uppercase" }}>
+                        <b>{stat.stat.name}</b>: {stat.base_stat}
 
-                            {
-                              typeProgress(types[0].type.name)
-                            }
+                        {
+                          typeProgress(types[0].type.name)
+                        }
 
-                            <div className="progress" style={{ borderRadius: "20px", height:"0.8em"}}>
-                              <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-
-                          </li>
-                        )
-                      }
-                  )
+                        <div className="progress" style={{ borderRadius: "20px", height:"0.8em", backgroundColor: "#B2BEC3" }}>
+                          <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    )
                   }
-                </ul>
-              </div>
+                )
+              }
             </Col>
           </Row>
         </Container>
-        
-        
       </div>
     </React.Fragment>
   )

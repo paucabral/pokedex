@@ -376,7 +376,7 @@ const Info = (info) => {
                         }
 
                         <div className="progress" style={{ borderRadius: "20px", height:"0.8em", backgroundColor: "#B2BEC3" }}>
-                          <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="100"></div>
+                          <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat/255*100}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="255"></div>
                         </div>
                       </div>
                     )

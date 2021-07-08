@@ -3,6 +3,9 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 // prop types
 import PropTypes from 'prop-types';
+// bootstrap
+import { Container, Row, Col } from 'react-bootstrap/';
+
 // hook
 import { useFetch } from './hooks/fetch-pokemon';
 // data
@@ -37,14 +40,21 @@ const Pokemon = () => {
   return (
     <React.Fragment>
       <InfoContext.Provider value={{ pokemon }}>
+
         <section>
           {
             error ? <Error /> : loading ? 'loading...' :
               (
-                <div>
-                  <Img {...pokemon} />
-                  <Info {...info} />
-                </div>
+                <Container fluid="md" style={{ display: "flex", justifyContent: "center" }}>
+                  <Row xs={1} md={2}>
+                    <Col >
+                      <Img {...pokemon} />
+                    </Col>
+                    <Col >
+                      <Info {...info} />
+                    </Col>
+                  </Row>
+                </Container>
               )
           }
         </section>
@@ -121,9 +131,9 @@ const Img = (pokemon) => {
   return (
     <React.Fragment>
       {types && typeDisplay(types[0].type.name)}
-      <div className="card" style={{ width: "20rem", backgroundColor: type_bg }}>
+      <div className="card" style={{ backgroundColor: type_bg }}>
         <h6>#{id}</h6>
-        <img src={image} alt={name}/>
+        <img style={{ objectFit: "cover", maxWidth: "100%", height: "auto" }} src={image} alt={name}/>
       </div>
     </React.Fragment>
   )
@@ -297,8 +307,14 @@ const Info = (info) => {
 
   return (
     <React.Fragment>
-      <div className="card" style={{ width: "20rem", display: "flex", justifyContent: "center" }}>
-        <h3>{name}</h3>
+      <div className="card" style={{ display: "flex", justifyContent: "center" }}>
+        <Container fluid="md">
+          <Row xs={1} md={2} style={{ display: "flex", justifyContent: "center" }}>
+            <Col style={{ display: "flex", justifyContent: "center" }}>
+              <h3>{name}</h3>
+            </Col>
+          </Row>
+        </Container>
 
         <ul className="noBullet">
           {
@@ -309,7 +325,7 @@ const Info = (info) => {
                 return (
                   <li key={type.slot} className="label">
                     <div className="icon">
-                      <img width="35%" src={type_img} alt={type.type.name}/>
+                      <img width="35%" style={{ borderRadius: "50%" }} className={`${type.type.name}Icon`} src={type_img} alt={type.type.name}/>
                     </div>
                     <span className={`label ${type.type.name}`}>{type.type.name}</span>
                   </li>
@@ -319,41 +335,59 @@ const Info = (info) => {
           }
         </ul>
 
-        <p>{text_entry}</p>
+        <Container fluid="md">
+          <Row md={2} style={{ display: "flex", justifyContent: "center" }}>
+            <Col style={{ display: "flex", justifyContent: "center" }}>
+              <p>{text_entry}</p>
+            </Col>
+          </Row>
+          <Row xs={1} md={2} style={{ display: "flex", justifyContent: "center" }}>
+            <Col style={{ display: "flex", justifyContent: "center" }}>
+              <p><b>Generation:</b> {gen ? gen : "N/A"}</p>
+            </Col>
+            <Col style={{ display: "flex", justifyContent: "center" }}>
+              <p><b>Habitat:</b> {place ? place : "N/A"}</p>
+            </Col>
+          </Row>
+        </Container>
 
-        <p><b>Generation:</b> {gen ? gen : "N/A"}</p>
-        
-        <p><b>Habitat:</b> {place ? place : "N/A"}</p>
-        
-        <div>
-          <h5>Base Stat</h5>
-          <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
-          <ul style={{ listStyleType: "none" }}>
-            {
-              stats &&
-              stats.map(
-                (stat) => {
-                  return (
-                    <li key={stat.stat.name}>
-                      {stat.stat.name}: {stat.base_stat}
-                      
-                      {/* <ProgressBar now={stat.base_stat} /> */}
+        <Container fluid="lg">
+          <Row>
+            <Col style={{ justifyContent: "center" }}>
+              <div>
+                <h5>Base Stat</h5>
+                <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
+                <ul style={{ listStyleType: "none" }}>
+                  {
+                    stats &&
+                    stats.map(
+                      (stat) => {
+                        return (
+                          <li key={stat.stat.name}>
+                            {stat.stat.name}: {stat.base_stat}
+                            
+                            {/* <ProgressBar now={stat.base_stat} /> */}
 
-                      {
-                        typeProgress(types[0].type.name)
+                            {
+                              typeProgress(types[0].type.name)
+                            }
+
+                            <div className="progress" style={{ borderRadius: "20px", height:"0.8em"}}>
+                              <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                          </li>
+                        )
                       }
-
-                      <div className="progress" style={{ borderRadius: "20px", height:"0.8em"}}>
-                        <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-
-                    </li>
                   )
-                }
-            )
-            }
-          </ul>
-        </div>
+                  }
+                </ul>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+        
+        
       </div>
     </React.Fragment>
   )

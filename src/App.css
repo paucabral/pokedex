@@ -202,90 +202,252 @@
 
 .bug {
   background: #92bc2c;
-  box-shadow: 0 0 20px #92bc2c;
 }
 
 .dark {
   background: #595761;
-  box-shadow: 0 0 20px #595761;
 }
 
 .dragon {
   background: #0c69c8;
-  box-shadow: 0 0 20px #0c69c8;
 }
 
 .electric {
   background: #f2d94e;
-  box-shadow: 0 0 20px #f2d94e;
 }
 
 .fire {
   background: #fba54c;
-  box-shadow: 0 0 20px #fba54c;
 }
 
 .fairy {
   background: #ee90e6;
-  box-shadow: 0 0 20px #ee90e6;
 }
 
 .fighting {
   background: #d3425f;
-  box-shadow: 0 0 20px #d3425f;
 }
 
 .flying {
   background: #a1bbec;
-  box-shadow: 0 0 20px #a1bbec;
 }
 
 .ghost {
   background: #5f6dbc;
-  box-shadow: 0 0 20px #5f6dbc;
 }
 
 .grass {
   background: #5fbd58;
-  box-shadow: 0 0 20px #5fbd58;
 }
 
 .ground {
   background: #da7c4d;
-  box-shadow: 0 0 20px #da7c4d;
 }
 
 .ice {
   background: #75d0c1;
-  box-shadow: 0 0 20px #75d0c1;
 }
 
 .normal {
   background: #a0a29f;
-  box-shadow: 0 0 20px #a0a29f;
 }
 
 .poison {
   background: #b763cf;
-  box-shadow: 0 0 20px #b763cf;
 }
 
 .psychic {
   background: #fa8581;
-  box-shadow: 0 0 20px #fa8581;
 }
 
 .rock {
   background: #c9bb8a;
-  box-shadow: 0 0 20px #c9bb8a;
 }
 
 .steel {
   background: #5695a3;
-  box-shadow: 0 0 20px #5695a3;
 }
 
 .water {
+  background: #539ddf;
+}
+
+.bug:hover {
+  background: #92bc2c;
+  box-shadow: 0 0 20px #92bc2c;
+}
+
+.dark:hover {
+  background: #595761;
+  box-shadow: 0 0 20px #595761;
+}
+
+.dragon:hover {
+  background: #0c69c8;
+  box-shadow: 0 0 20px #0c69c8;
+}
+
+.electric:hover {
+  background: #f2d94e;
+  box-shadow: 0 0 20px #f2d94e;
+}
+
+.fire:hover {
+  background: #fba54c;
+  box-shadow: 0 0 20px #fba54c;
+}
+
+.fairy:hover {
+  background: #ee90e6;
+  box-shadow: 0 0 20px #ee90e6;
+}
+
+.fighting:hover {
+  background: #d3425f;
+  box-shadow: 0 0 20px #d3425f;
+}
+
+.flying:hover {
+  background: #a1bbec;
+  box-shadow: 0 0 20px #a1bbec;
+}
+
+.ghost:hover {
+  background: #5f6dbc;
+  box-shadow: 0 0 20px #5f6dbc;
+}
+
+.grass:hover {
+  background: #5fbd58;
+  box-shadow: 0 0 20px #5fbd58;
+}
+
+.ground:hover {
+  background: #da7c4d;
+  box-shadow: 0 0 20px #da7c4d;
+}
+
+.ice:hover {
+  background: #75d0c1;
+  box-shadow: 0 0 20px #75d0c1;
+}
+
+.normal:hover {
+  background: #a0a29f;
+  box-shadow: 0 0 20px #a0a29f;
+}
+
+.poison:hover {
+  background: #b763cf;
+  box-shadow: 0 0 20px #b763cf;
+}
+
+.psychic:hover {
+  background: #fa8581;
+  box-shadow: 0 0 20px #fa8581;
+}
+
+.rock:hover {
+  background: #c9bb8a;
+  box-shadow: 0 0 20px #c9bb8a;
+}
+
+.steel:hover {
+  background: #5695a3;
+  box-shadow: 0 0 20px #5695a3;
+}
+
+.water:hover {
+  background: #539ddf;
+  box-shadow: 0 0 20px #539ddf;
+}
+
+.bugIcon:hover {
+  background: #92bc2c;
+  box-shadow: 0 0 20px #92bc2c;
+}
+
+.darkIcon:hover {
+  background: #595761;
+  box-shadow: 0 0 20px #595761;
+}
+
+.dragonIcon:hover {
+  background: #0c69c8;
+  box-shadow: 0 0 20px #0c69c8;
+}
+
+.electricIcon:hover {
+  background: #f2d94e;
+  box-shadow: 0 0 20px #f2d94e;
+}
+
+.fireIcon:hover {
+  background: #fba54c;
+  box-shadow: 0 0 20px #fba54c;
+}
+
+.fairyIcon:hover {
+  background: #ee90e6;
+  box-shadow: 0 0 20px #ee90e6;
+}
+
+.fightingIcon:hover {
+  background: #d3425f;
+  box-shadow: 0 0 20px #d3425f;
+}
+
+.flyingIcon:hover {
+  background: #a1bbec;
+  box-shadow: 0 0 20px #a1bbec;
+}
+
+.ghostIcon:hover {
+  background: #5f6dbc;
+  box-shadow: 0 0 20px #5f6dbc;
+}
+
+.grassIcon:hover {
+  background: #5fbd58;
+  box-shadow: 0 0 20px #5fbd58;
+}
+
+.groundIcon:hover {
+  background: #da7c4d;
+  box-shadow: 0 0 20px #da7c4d;
+}
+
+.iceIcon:hover {
+  background: #75d0c1;
+  box-shadow: 0 0 20px #75d0c1;
+}
+
+.normalIcon:hover {
+  background: #a0a29f;
+  box-shadow: 0 0 20px #a0a29f;
+}
+
+.poisonIcon:hover {
+  background: #b763cf;
+  box-shadow: 0 0 20px #b763cf;
+}
+
+.psychicIcon:hover {
+  background: #fa8581;
+  box-shadow: 0 0 20px #fa8581;
+}
+
+.rockIcon:hover {
+  background: #c9bb8a;
+  box-shadow: 0 0 20px #c9bb8a;
+}
+
+.steelIcon:hover {
+  background: #5695a3;
+  box-shadow: 0 0 20px #5695a3;
+}
+
+.waterIcon:hover {
   background: #539ddf;
   box-shadow: 0 0 20px #539ddf;
 }

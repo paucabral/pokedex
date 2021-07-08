@@ -1,6 +1,5 @@
 // import logo from './logo.svg';
 import './App.css';
-import React from 'react';
 // react router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // components
@@ -14,7 +13,6 @@ import NotFound from './components/error/NotFound';
 import bg_img from './assets/background/background.png';
 
 function App() {
-
   return (
     <Router>
       <div style={{ backgroundImage: `url(${bg_img})`, backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>

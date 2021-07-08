@@ -29,7 +29,6 @@ import psychic from '../../assets/pokemon-types/psychic.png';
 import rock from '../../assets/pokemon-types/rock.png';
 import steel from '../../assets/pokemon-types/steel.png';
 import water from '../../assets/pokemon-types/water.png';
-import { faDirections } from '@fortawesome/free-solid-svg-icons';
 
 const InfoContext = React.createContext();
 

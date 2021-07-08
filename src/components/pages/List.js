@@ -24,7 +24,7 @@ const List = () => {
   const { loading, error, pokemon, next, prev } = useFetch(info, url)
   return (
     <React.Fragment>
-      <div>
+      <div className="container">
         <Navbar className="navbar-dark" expand="lg">
           <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ marginBottom: "1em" }}/>
           <Navbar.Collapse id="basic-navbar-nav" >
@@ -50,7 +50,7 @@ const List = () => {
         </Navbar>
       </div>
       
-      <section className="container-fluid">
+      <section className="container container-fluid">
         <div className="row">
           {
             error && <Error />

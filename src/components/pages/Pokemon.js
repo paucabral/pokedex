@@ -29,6 +29,7 @@ import psychic from '../../assets/pokemon-types/psychic.png';
 import rock from '../../assets/pokemon-types/rock.png';
 import steel from '../../assets/pokemon-types/steel.png';
 import water from '../../assets/pokemon-types/water.png';
+import { faDirections } from '@fortawesome/free-solid-svg-icons';
 
 const InfoContext = React.createContext();
 
@@ -304,15 +305,47 @@ const Info = (info) => {
     }
   }
 
+  let short_stat;
+  const getShortStat = (stat) => {
+    if (stat === "hp") {
+      short_stat = "HP";
+    }
+    else if (stat === "attack") {
+      short_stat = "ATK";
+    }
+    else if (stat === "defense") {
+      short_stat = "DEF";
+    }
+    else if (stat === "special-attack") {
+      short_stat = "SATK";
+    }
+    else if (stat === "special-defense") {
+      short_stat = "SDEF";
+    }
+    else if (stat === "speed") {
+      short_stat = "SPD";
+    }
+    else {
+      short_stat = stat;
+    }
+  }
+
+  let normalized_stat;
+  const normalizeStat = (num, size) => {
+    num = num.toString();
+    while (num.length < size) num = "0" + num;
+    normalized_stat = num;
+  }
+
   genNum(gen);
 
   return (
     <React.Fragment>
-      <div className="card pokemonInfo" style={{ display: "flex", justifyContent: "center" }}>
+      <div className="card pokemonInfo" style={{ display: "flex", justifyContent: "center", backgroundColor: "#2b2c30" }}>
         <Container fluid="md">
           <Row style={{ display: "flex", justifyContent: "center", marginTop: "1.5rem" }}>
             <Col style={{ display: "flex", justifyContent: "center" }}>
-              <h1 style={{ textTransform: "uppercase" }}>{name}</h1>
+              <h1 className="text-white" style={{ textTransform: "uppercase" }}>{name}</h1>
             </Col>
           </Row>
         </Container>
@@ -338,16 +371,16 @@ const Info = (info) => {
 
         <Container fluid="md">
           <Row style={{ display: "flex", justifyContent: "center", margin: "0.1em" }}>
-            <Col style={{ display: "flex", justifyContent: "center" }}>
-              <p style={{ textAlign: "center" }}>{text_entry_cleaned}</p>
+            <Col className="textEntry" style={{ display: "flex", justifyContent: "center" }}>
+              <p style={{ textAlign: "center", color: "#bbb8ca" }}>{text_entry_cleaned}</p>
             </Col>
           </Row>
           <Row xs={1} md={2} style={{ display: "flex", justifyContent: "center", margin: "0.1em" }}>
             <Col style={{ display: "flex", justifyContent: "center" }}>
-              <p style={{ textTransform: "uppercase" }}><b style={{ fontWeight: "700" }}>Generation:</b> {gen ? gen : "N/A"}</p>
+              <p style={{ textTransform: "uppercase", color: "#bbb8ca" }}><b className="text-white" style={{ fontWeight: "700" }}>Generation:</b> {gen ? gen : "N/A"}</p>
             </Col>
             <Col style={{ display: "flex", justifyContent: "center" }}>
-              <p style={{ textTransform: "uppercase" }}><b style={{ fontWeight: "700" }}>Habitat:</b> {place ? place : "N/A"}</p>
+              <p style={{ textTransform: "uppercase", color: "#bbb8ca" }}><b className="text-white" style={{ fontWeight: "700" }}>Habitat:</b> {place ? place : "N/A"}</p>
             </Col>
           </Row>
         </Container>
@@ -355,7 +388,7 @@ const Info = (info) => {
         <Container fluid="md">
           <Row style={{ margin: "0.1em" }}>
             <Col style={{ display: "flex", justifyContent: "flex-start", alignItems: "center"}}>
-              <h5 style={{ fontWeight: "700" }}>BASE STATS</h5>
+              <h5 className="text-white" style={{ fontWeight: "700" }}>BASE STATS</h5>
             </Col>
             <Col style={{ display: "flex", justifyContent: "flex-end", alignItems: "center"}}>
               <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
@@ -368,15 +401,26 @@ const Info = (info) => {
                 stats.map(
                   (stat) => {
                     return (
-                      <div key={stat.stat.name} style={{ textTransform: "uppercase" }}>
-                        <b>{stat.stat.name}</b>: {stat.base_stat}
-
-                        {
-                          typeProgress(types[0].type.name)
-                        }
-
-                        <div className="progress" style={{ borderRadius: "20px", height:"0.8em", backgroundColor: "#B2BEC3" }}>
-                          <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat/255*100}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="255"></div>
+                      <div className="d-flex flex-row" key={stat.stat.name} style={{ display:"flex", textTransform: "uppercase", alignContent: "center" }}>
+                        <div className="statName" style={{ alignContent: "center" }}>
+                          {
+                            getShortStat(stat.stat.name)
+                          }
+                          <b className="text-white">{short_stat}</b>
+                        </div>
+                        <div className="statVal" style={{ alignContent: "center", color: "#bbb8ca" }}>
+                          {
+                            typeProgress(types[0].type.name)
+                          }
+                          {
+                            normalizeStat(stat.base_stat,3)
+                          }
+                          {normalized_stat}
+                        </div>
+                        <div className="d-flex flex-column" style={{ alignContent: "center", width: "100%", transform: "translateY(30%)" }}>
+                          <div className="progress" style={{ borderRadius: "20px", height:"0.8em", backgroundColor: "#181818" }}>
+                            <div className={`progress-bar progressLevel`} role="progressbar" style={{width: `${stat.base_stat/255*100}%`, borderRadius: "20px", backgroundColor: type_bg, boxShadow: "0"}} aria-valuenow={stat.base_stat} aria-valuemin="0" aria-valuemax="255"></div>
+                          </div>
                         </div>
                       </div>
                     )

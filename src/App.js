@@ -23,7 +23,7 @@ function App() {
           <Navigation />
         </div>
 
-        <div className="container" style={{ paddingTop: "5.5rem", paddingBottom: "3rem" }}>
+        <div style={{ paddingTop: "5.5rem", paddingBottom: "3rem" }}>
           <div>
             <Switch>
               <Route exact path="/">

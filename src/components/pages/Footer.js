@@ -31,7 +31,7 @@ const Footer = () => {
 
   return (
     <React.Fragment>
-      <div className="container-fluid pb-0 mb-0 justify-content-center text-light footer-fixed">
+      <div className="container-fluid pb-0 mb-0 justify-content-center text-light footer-fixed" style={{ zIndex: 2 }}>
           <footer>
               <div className="row my-5 justify-content-center py-0">
                   <div className="col-11">

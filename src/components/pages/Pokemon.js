@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 // react router dom
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 // prop types
 import PropTypes from 'prop-types';
 // bootstrap
 import { Container, Row, Col } from 'react-bootstrap/';
-
 // hook
 import { useFetch } from './hooks/fetch-pokemon';
 // data
 import { pokeapi_pokemon_info, pokemon_showdown_sprites_directory } from '../../data/api';
+// FontAwesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+// component
+import Loading from '../loading/Loading'
 // pokemon-types images
 import bug from '../../assets/pokemon-types/bug.png';
 import dark from '../../assets/pokemon-types/dark.png';
@@ -36,6 +40,12 @@ const Pokemon = () => {
   const { id } = useParams();
   const url = `${pokeapi_pokemon_info}${id}`;
   const { loading, error, pokemon, info } = useFetch(url);
+
+  useEffect(
+    () => {
+      document.title = `PokéDex | ${String(pokemon.name).replace(/^\w/, (c) => c.toUpperCase())}`
+    }
+  );
   
   return (
     <React.Fragment>
@@ -43,7 +53,10 @@ const Pokemon = () => {
 
         <section>
           {
-            error ? <Error /> : loading ? 'loading...' :
+            error ? <Error /> : loading ?
+            <div style={{ height: "100vh", display: "flex", justifyContent: "center" ,alignContent: "center" }}>
+              <Loading/>
+            </div> :
               (
                 <Container fluid="md" style={{ display: "flex", justifyContent: "center" }}>
                   <Row xs={1} md={2}>
@@ -142,7 +155,7 @@ const Img = (pokemon) => {
 const Info = (info) => {
   const { flavor_text_entries, habitat, generation } = info;
   const text_entry = (flavor_text_entries && flavor_text_entries[1].flavor_text);
-  const text_entry_cleaned = String(text_entry).replace(/[^a-zA-Z,^é,^. ]/g, " ");
+  const text_entry_cleaned = String(text_entry).replace(/[^a-zA-Z,^é,^. ]/g, " ").replace("POKéMON", "Pokémon");
   const place = (habitat && habitat.name);
 
   const pokemon = useContext(InfoContext);
@@ -390,7 +403,7 @@ const Info = (info) => {
               <h5 className="text-white" style={{ fontWeight: "700" }}>BASE STATS</h5>
             </Col>
             <Col style={{ display: "flex", justifyContent: "flex-end", alignItems: "center"}}>
-              <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
+              <img src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
             </Col>
           </Row>
           <Row style={{ margin: "0.1em" ,marginBottom: "2.5rem" }}>
@@ -445,8 +458,29 @@ Pokemon.propTypes = {
 const Error = () => {
   return (
     <React.Fragment>
-      <div>
-        <p>There was an error.</p>
+      <div className="text-white container" style={{ height: "100vh", display: "flex", justifyContent: "center", alignContent: "center", marginBottom: "3rem" }}>
+        <Container style={{ margin: "2em" }}>
+          <Row>
+            <Col style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
+              <h1 style={{ fontSize: "4em", textAlign: "center" }}>An error occured.</h1>
+            </Col>
+          </Row>
+          <Row style={{ marginTop: "3em" }}>
+            <Col style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
+              <p style={{ textAlign: "center", width: "80%", fontSize: "1.3em" }}>Please check your internet connection and make sure it is not blocking the PokéAPI domain. Do ensure as well that the Pokémon you search actually exists. Try searching for the ID instead if the name cannot be found.</p>
+            </Col>
+          </Row>
+          <Row style={{ marginTop: "3em" }}>
+            <Col style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
+              <p style={{ textAlign: "center", width: "90%", fontSize: "1.3em" }}>To raise an issue, or for any other concerns, please send a message from the <Link to={{ pathname: "https://paucabral.github.io/#contact" }} target="_blank" className="text-white" style={{ textDecoration: "none" }}><b className="contact">Contact Section</b></Link>.</p>
+            </Col>
+          </Row>
+          <Row style={{ display: "flex", justifyContent: "center", alignContent: "center", marginTop: "2rem" }}>
+            <Col style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
+              <Link to="/" className="btn btn-info" style={{ fontWeight: "bold" }}>Back to Home <FontAwesomeIcon icon={faHome}/></Link>
+            </Col>
+          </Row>
+        </Container>
       </div>
     </React.Fragment>
   );

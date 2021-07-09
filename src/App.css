@@ -1,3 +1,12 @@
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Background */
 
 .logoLoad {
@@ -29,6 +38,10 @@
 .navigation .navigationItem {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.navigation .navigationItem:hover {
+  color: #b026ff;
 }
 
 .brandLogo:hover {
@@ -167,6 +180,7 @@
   animation-timing-function: ease-in;
   animation-duration: 0.4s;
 }
+
 @keyframes animateBar {
   0% {
     transform: translateX(-100%);
@@ -494,6 +508,15 @@
   position: absolute;
   left: 0;
   width: 100%;
+}
+
+/* Error */
+.contact {
+  color: rgb(165, 233, 241);
+}
+
+.contact:hover {
+  color: #0abdc6;
 }
 
 /* Mobile */

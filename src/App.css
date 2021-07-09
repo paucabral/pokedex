@@ -176,6 +176,7 @@
   animation-timing-function: ease-in;
   animation-duration: 0.4s;
 }
+
 @keyframes animateBar {
   0% {
     transform: translateX(-100%);
@@ -503,6 +504,15 @@
   position: absolute;
   left: 0;
   width: 100%;
+}
+
+/* Error */
+.contact {
+  color: rgb(165, 233, 241);
+}
+
+.contact:hover {
+  color: #0abdc6;
 }
 
 /* Mobile */

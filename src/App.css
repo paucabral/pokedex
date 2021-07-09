@@ -40,6 +40,10 @@
   font-weight: bold;
 }
 
+.navigation .navigationItem:hover {
+  color: #b026ff;
+}
+
 .brandLogo:hover {
   filter: saturate(2);
   transform: scale(1.1);

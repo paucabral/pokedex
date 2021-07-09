@@ -12,6 +12,8 @@ import { pokeapi_pokemon_info, pokemon_showdown_sprites_directory } from '../../
 // FontAwesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+// component
+import Loading from '../loading/Loading'
 // pokemon-types images
 import bug from '../../assets/pokemon-types/bug.png';
 import dark from '../../assets/pokemon-types/dark.png';
@@ -51,7 +53,10 @@ const Pokemon = () => {
 
         <section>
           {
-            error ? <Error /> : loading ? 'loading...' :
+            error ? <Error /> : loading ?
+            <div style={{ height: "100vh", display: "flex", justifyContent: "center" ,alignContent: "center" }}>
+              <Loading/>
+            </div> :
               (
                 <Container fluid="md" style={{ display: "flex", justifyContent: "center" }}>
                   <Row xs={1} md={2}>
@@ -462,17 +467,17 @@ const Error = () => {
           </Row>
           <Row style={{ marginTop: "3em" }}>
             <Col style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-              <p style={{ textAlign: "center", width: "80%", fontSize: "1.3em" }}>Please check your internet connection and make sure the Pokémon you search actually exists. Try searching for the ID instead if the name cannot be found.</p>
+              <p style={{ textAlign: "center", width: "80%", fontSize: "1.3em" }}>Please check your internet connection and make sure it is not blocking the PokéAPI domain. Do ensure as well that the Pokémon you search actually exists. Try searching for the ID instead if the name cannot be found.</p>
             </Col>
           </Row>
           <Row style={{ marginTop: "3em" }}>
             <Col style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-              <p style={{ textAlign: "center", width: "90%", fontSize: "1.3em" }}>To raise issue or for any other concerns, please send a message at the <Link to={{ pathname: "https://paucabral.github.io/#contact" }} target="_blank" className="text-white" style={{ textDecoration: "none" }}><b className="contact">Contact Section</b></Link>.</p>
+              <p style={{ textAlign: "center", width: "90%", fontSize: "1.3em" }}>To raise an issue, or for any other concerns, please send a message from the <Link to={{ pathname: "https://paucabral.github.io/#contact" }} target="_blank" className="text-white" style={{ textDecoration: "none" }}><b className="contact">Contact Section</b></Link>.</p>
             </Col>
           </Row>
           <Row style={{ display: "flex", justifyContent: "center", alignContent: "center", marginTop: "2rem" }}>
             <Col style={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
-              <Link to="/" className="btn btn-info">Back to Home <FontAwesomeIcon icon={faHome}/></Link>
+              <Link to="/" className="btn btn-info" style={{ fontWeight: "bold" }}>Back to Home <FontAwesomeIcon icon={faHome}/></Link>
             </Col>
           </Row>
         </Container>

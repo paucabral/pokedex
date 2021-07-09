@@ -8,9 +8,6 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    {
-      document.title = "Pau Cabral | PokéDex"
-    }
     <App />
   </React.StrictMode>,
   document.getElementById('root')

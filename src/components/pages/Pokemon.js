@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 // react router dom
 import { useParams } from 'react-router-dom';
 // prop types
@@ -36,6 +36,12 @@ const Pokemon = () => {
   const { id } = useParams();
   const url = `${pokeapi_pokemon_info}${id}`;
   const { loading, error, pokemon, info } = useFetch(url);
+
+  useEffect(
+    () => {
+      document.title = `PokéDex | ${String(pokemon.name).replace(/^\w/, (c) => c.toUpperCase())}`
+    }
+  );
   
   return (
     <React.Fragment>
@@ -142,7 +148,7 @@ const Img = (pokemon) => {
 const Info = (info) => {
   const { flavor_text_entries, habitat, generation } = info;
   const text_entry = (flavor_text_entries && flavor_text_entries[1].flavor_text);
-  const text_entry_cleaned = String(text_entry).replace(/[^a-zA-Z,^é,^. ]/g, " ");
+  const text_entry_cleaned = String(text_entry).replace(/[^a-zA-Z,^é,^. ]/g, " ").replace("POKéMON", "Pokémon");
   const place = (habitat && habitat.name);
 
   const pokemon = useContext(InfoContext);

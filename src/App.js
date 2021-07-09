@@ -2,6 +2,8 @@
 import './App.css';
 // react router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// useEffect
+import React, { useEffect } from 'react';
 // components
 import Navigation from './components/pages/Navigation';
 import Footer from './components/pages/Footer';
@@ -13,6 +15,12 @@ import NotFound from './components/error/NotFound';
 import bg_img from './assets/background/background.png';
 
 function App() {
+  useEffect(
+    () => {
+      document.title = "Pau Cabral | PokéDex"
+    },[]
+  );
+
   return (
     <Router>
       <div style={{ backgroundImage: `url(${bg_img})`, backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>

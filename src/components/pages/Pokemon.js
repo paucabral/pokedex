@@ -155,7 +155,7 @@ const Img = (pokemon) => {
 const Info = (info) => {
   const { flavor_text_entries, habitat, generation } = info;
   const text_entry = (flavor_text_entries && flavor_text_entries[1].flavor_text);
-  const text_entry_cleaned = String(text_entry).replace(/[^a-zA-Z,^é,^. ]/g, " ").replace("POKéMON", "Pokémon");
+  const text_entry_cleaned = String(text_entry).replace(/[^a-zA-Z,^0-9,^é,^. ]/g, " ").replace("POKéMON", "Pokémon");
   const place = (habitat && habitat.name);
 
   const pokemon = useContext(InfoContext);

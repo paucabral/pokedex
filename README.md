@@ -1,6 +1,6 @@
 # Welcome to Pau Cabral's PokéDex!
 
-This is a PokéDex site that allow users to view Pokémon and their corresponding information fetched from **PokéAPI**.
+This is a PokéDex site that allows users to view Pokémon and their corresponding information fetched from **PokéAPI**.
 
 Visit this site at <a href="https://paucabral-pokedex.netlify.app/">this link</a>.
 

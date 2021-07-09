@@ -390,7 +390,7 @@ const Info = (info) => {
               <h5 className="text-white" style={{ fontWeight: "700" }}>BASE STATS</h5>
             </Col>
             <Col style={{ display: "flex", justifyContent: "flex-end", alignItems: "center"}}>
-              <img width="50px" src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
+              <img src={`${pokemon_showdown_sprites_directory}${name}.gif`} alt={name}/>
             </Col>
           </Row>
           <Row style={{ margin: "0.1em" ,marginBottom: "2.5rem" }}>

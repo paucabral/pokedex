@@ -64,7 +64,7 @@ val_ds = tf.keras.preprocessing.image_dataset_from_directory(
 class_names = train_ds.class_names
 
 # Displaying the classifications.
-print(class_names)
+# print(class_names)
 
 AUTOTUNE = tf.data.AUTOTUNE
 
@@ -102,7 +102,7 @@ model.compile(optimizer='adam',
 model.summary()
 
 # Declare number of full iteration over samples.
-epochs = 150
+epochs = 200
 history = model.fit(
     train_ds,
     validation_data=val_ds,

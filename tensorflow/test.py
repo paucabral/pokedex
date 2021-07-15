@@ -9,7 +9,7 @@ import numpy as np
 MODEL_PATH = 'model.h5'
 
 # Path to image to be tested.
-TEST_IMG = 'dataset/nidoran-m.jpg'
+TEST_IMG = 'dataset/pikachu.jpg'
 
 model = keras.models.load_model(MODEL_PATH)
 

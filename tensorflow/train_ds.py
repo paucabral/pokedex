@@ -36,7 +36,7 @@ MODEL_FILENAME = 'model.h5'
 # PIL.Image.open(str(pikachu[0])).show()
 
 # Parameters
-batch_size = 32
+batch_size = 64
 img_height = 200
 img_width = 200
 

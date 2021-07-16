@@ -15,8 +15,9 @@ from tensorflow.keras.models import Sequential
 # import PIL
 
 # Check if GPU is CUDA compatible.
-print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
-print("CUDA Compute Compatibility", tf.test.is_gpu_available(
+print("Number of GPUs Available: ", len(
+    tf.config.list_physical_devices('GPU')))
+print("CUDA Compute Compatibility: ", tf.test.is_gpu_available(
     cuda_only=False, min_cuda_compute_capability=None))
 print(device_lib.list_local_devices())
 
@@ -64,7 +65,7 @@ val_ds = tf.keras.preprocessing.image_dataset_from_directory(
 class_names = train_ds.class_names
 
 # Displaying the classifications.
-# print(class_names)
+print(class_names)
 
 AUTOTUNE = tf.data.AUTOTUNE
 
@@ -83,7 +84,8 @@ num_classes = len(class_names)
 model = Sequential([
     layers.experimental.preprocessing.Rescaling(
         1./255, input_shape=(img_height, img_width, 3)),
-    layers.Conv2D(16, 3, padding='same', activation='relu'),
+    layers.Conv2D(filters=32, kernel_size=(5, 5), padding='same',
+                  activation='relu', input_shape=(img_height, img_width, 3)),
     layers.MaxPooling2D(),
     layers.Conv2D(32, 3, padding='same', activation='relu'),
     layers.MaxPooling2D(),
@@ -91,7 +93,7 @@ model = Sequential([
     layers.MaxPooling2D(),
     layers.Flatten(),
     layers.Dense(128, activation='relu'),
-    layers.Dense(num_classes)
+    layers.Dense(num_classes, activation='softmax')
 ])
 
 model.compile(optimizer='adam',

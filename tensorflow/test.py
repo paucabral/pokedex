@@ -9,7 +9,7 @@ import numpy as np
 MODEL_PATH = 'model.h5'
 
 # Path to image to be tested.
-TEST_IMG = 'dataset/butterfree.jpg'
+TEST_IMG = 'dataset/test.jpg'
 
 model = keras.models.load_model(MODEL_PATH)
 
@@ -30,7 +30,10 @@ img_array = tf.expand_dims(img_array, 0)  # Create a batch
 predictions = model.predict(img_array)
 score = tf.nn.softmax(predictions[0])
 
+eval_score = (np.max(score)/(np.max(score) + np.min(score))) * 100
+best = np.argmax(score)
+
 print(
     "This image most likely belongs to {} with a {:.2f} percent confidence.".format(
-        pokemon_list[np.argmax(score)], 100 * np.max(score))
+        pokemon_list[best], eval_score)
 )

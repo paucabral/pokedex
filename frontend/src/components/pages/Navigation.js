@@ -15,7 +15,8 @@ const Navigation = () => {
           <Navbar.Collapse id="responsove-navbar-nav" className="justify-content-end" style={{ width: "100%" }}>
             <Nav className="justify-content-end" style={{ width: "100%" }}>
               <Nav.Link href="/" className="navigationItem">Home</Nav.Link>
-              <Nav.Link href="/list" className="navigationItem">Entries</Nav.Link>
+              <Nav.Link href="/scan" className="navigationItem">Scan</Nav.Link>
+              <Nav.Link href="/entries" className="navigationItem">Entries</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

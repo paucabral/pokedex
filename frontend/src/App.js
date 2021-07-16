@@ -8,6 +8,7 @@ import React, { useEffect } from 'react';
 import Navigation from './components/pages/Navigation';
 import Footer from './components/pages/Footer';
 import Home from './components/pages/Home';
+import Scan from './components/pages/Scan';
 import List from './components/pages/List';
 import Pokemon from './components/pages/Pokemon';
 import NotFound from './components/error/NotFound';
@@ -35,8 +36,11 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/list">
+              <Route path="/entries">
                 <List />
+              </Route>
+              <Route path="/scan">
+                <Scan />
               </Route>
               <Route path="/pokemon/:id">
                 <Pokemon />

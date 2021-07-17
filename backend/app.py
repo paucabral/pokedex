@@ -20,7 +20,8 @@ if MODE == "development":
 @app.route('/')
 @app.route('/<path:path>')
 def index(path=''):
-    return redirect(DEV_SERVER_URL)
+    # return redirect(DEV_SERVER_URL)
+    return jsonify({"response": "nice"})
 
 
 @app.route('/api/classify', methods=['POST'])

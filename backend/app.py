@@ -6,6 +6,7 @@ from classifier import classifyImage
 
 MODE = os.getenv('FLASK_ENV')
 DEV_SERVER_URL = os.getenv('FRONTEND')
+PORT = os.getenv('FLASK_PORT')
 
 app = Flask(__name__)
 CORS(app)
@@ -31,4 +32,4 @@ def classify():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', threaded=True)
+    app.run(host='0.0.0.0', threaded=True, port=PORT)

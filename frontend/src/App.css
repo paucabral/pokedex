@@ -1,0 +1,554 @@
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Background */
+
+.logoLoad {
+  width: 50em;
+  opacity: 0.3;
+  position: fixed;
+  right: -15%;
+  bottom: -20%;
+  z-index: 0;
+  /* animation: App-logo-spin infinite 15s linear; */
+}
+
+/* Navbar */
+.navigation {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-family: "Roboto Cn", sans-serif;
+}
+
+.brand {
+  margin: 0.5rem;
+  justify-content: left;
+}
+
+.navigation h2 {
+  font-weight: 1000;
+}
+
+.navigation .navigationItem {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.navigation .navigationItem:hover {
+  color: #b026ff;
+}
+
+.brandLogo:hover {
+  filter: saturate(2);
+  transform: scale(1.1);
+  animation: linear;
+}
+
+/* Page Buttons */
+.pageButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.pageButtons button {
+  display: flex;
+  justify-content: center;
+  width: 20rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Card Items */
+.name {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.clickName {
+  display: flex;
+  margin: auto;
+  margin-top: -0.1em;
+  margin-bottom: 1rem;
+  text-align: center;
+  justify-content: center;
+  width: 60%;
+  border-radius: 2rem;
+  background-color: rgb(16, 16, 19);
+}
+
+.mainList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mainCard {
+  border-radius: 1.5rem;
+  background-color: #595761;
+  border-style: none;
+  margin: 1em;
+  box-shadow: 0 0 1em #111111;
+}
+
+.upperCard {
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  border-style: none;
+  background: none;
+}
+
+.cardID {
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #edf0e6;
+}
+
+.lowerCard {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  border-style: none;
+  background-color: #282c34;
+}
+
+.card .name:link {
+  text-decoration: none;
+}
+
+/* Pokemon Types Icons */
+.noBullet {
+  margin-top: 1rem;
+  list-style-type: none;
+  display: flex;
+  margin-left: -2.2rem;
+  justify-content: center;
+}
+
+.noBullet li {
+  display: inline;
+  margin: 0.5rem;
+}
+
+.noBullet span {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+}
+
+.icon {
+  align-items: center;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
+    #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
+  border-radius: 20px;
+  height: 30%;
+  width: 30%;
+  margin: auto;
+  transition: 200ms all;
+}
+
+.label:hover {
+  filter: saturate(200%);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.progressLevel:hover {
+  filter: saturate(200%);
+  cursor: pointer;
+}
+
+.progress .progress-bar {
+  animation-name: animateBar;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.4s;
+}
+
+@keyframes animateBar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.bug {
+  background: #92bc2c;
+}
+
+.dark {
+  background: #595761;
+}
+
+.dragon {
+  background: #0c69c8;
+}
+
+.electric {
+  background: #f2d94e;
+}
+
+.fire {
+  background: #fba54c;
+}
+
+.fairy {
+  background: #ee90e6;
+}
+
+.fighting {
+  background: #d3425f;
+}
+
+.flying {
+  background: #a1bbec;
+}
+
+.ghost {
+  background: #5f6dbc;
+}
+
+.grass {
+  background: #5fbd58;
+}
+
+.ground {
+  background: #da7c4d;
+}
+
+.ice {
+  background: #75d0c1;
+}
+
+.normal {
+  background: #a0a29f;
+}
+
+.poison {
+  background: #b763cf;
+}
+
+.psychic {
+  background: #fa8581;
+}
+
+.rock {
+  background: #c9bb8a;
+}
+
+.steel {
+  background: #5695a3;
+}
+
+.water {
+  background: #539ddf;
+}
+
+.bug:hover {
+  background: #92bc2c;
+  box-shadow: 0 0 20px #92bc2c;
+}
+
+.dark:hover {
+  background: #595761;
+  box-shadow: 0 0 20px #595761;
+}
+
+.dragon:hover {
+  background: #0c69c8;
+  box-shadow: 0 0 20px #0c69c8;
+}
+
+.electric:hover {
+  background: #f2d94e;
+  box-shadow: 0 0 20px #f2d94e;
+}
+
+.fire:hover {
+  background: #fba54c;
+  box-shadow: 0 0 20px #fba54c;
+}
+
+.fairy:hover {
+  background: #ee90e6;
+  box-shadow: 0 0 20px #ee90e6;
+}
+
+.fighting:hover {
+  background: #d3425f;
+  box-shadow: 0 0 20px #d3425f;
+}
+
+.flying:hover {
+  background: #a1bbec;
+  box-shadow: 0 0 20px #a1bbec;
+}
+
+.ghost:hover {
+  background: #5f6dbc;
+  box-shadow: 0 0 20px #5f6dbc;
+}
+
+.grass:hover {
+  background: #5fbd58;
+  box-shadow: 0 0 20px #5fbd58;
+}
+
+.ground:hover {
+  background: #da7c4d;
+  box-shadow: 0 0 20px #da7c4d;
+}
+
+.ice:hover {
+  background: #75d0c1;
+  box-shadow: 0 0 20px #75d0c1;
+}
+
+.normal:hover {
+  background: #a0a29f;
+  box-shadow: 0 0 20px #a0a29f;
+}
+
+.poison:hover {
+  background: #b763cf;
+  box-shadow: 0 0 20px #b763cf;
+}
+
+.psychic:hover {
+  background: #fa8581;
+  box-shadow: 0 0 20px #fa8581;
+}
+
+.rock:hover {
+  background: #c9bb8a;
+  box-shadow: 0 0 20px #c9bb8a;
+}
+
+.steel:hover {
+  background: #5695a3;
+  box-shadow: 0 0 20px #5695a3;
+}
+
+.water:hover {
+  background: #539ddf;
+  box-shadow: 0 0 20px #539ddf;
+}
+
+.bugIcon:hover {
+  background: #92bc2c;
+  box-shadow: 0 0 20px #92bc2c;
+}
+
+.darkIcon:hover {
+  background: #595761;
+  box-shadow: 0 0 20px #595761;
+}
+
+.dragonIcon:hover {
+  background: #0c69c8;
+  box-shadow: 0 0 20px #0c69c8;
+}
+
+.electricIcon:hover {
+  background: #f2d94e;
+  box-shadow: 0 0 20px #f2d94e;
+}
+
+.fireIcon:hover {
+  background: #fba54c;
+  box-shadow: 0 0 20px #fba54c;
+}
+
+.fairyIcon:hover {
+  background: #ee90e6;
+  box-shadow: 0 0 20px #ee90e6;
+}
+
+.fightingIcon:hover {
+  background: #d3425f;
+  box-shadow: 0 0 20px #d3425f;
+}
+
+.flyingIcon:hover {
+  background: #a1bbec;
+  box-shadow: 0 0 20px #a1bbec;
+}
+
+.ghostIcon:hover {
+  background: #5f6dbc;
+  box-shadow: 0 0 20px #5f6dbc;
+}
+
+.grassIcon:hover {
+  background: #5fbd58;
+  box-shadow: 0 0 20px #5fbd58;
+}
+
+.groundIcon:hover {
+  background: #da7c4d;
+  box-shadow: 0 0 20px #da7c4d;
+}
+
+.iceIcon:hover {
+  background: #75d0c1;
+  box-shadow: 0 0 20px #75d0c1;
+}
+
+.normalIcon:hover {
+  background: #a0a29f;
+  box-shadow: 0 0 20px #a0a29f;
+}
+
+.poisonIcon:hover {
+  background: #b763cf;
+  box-shadow: 0 0 20px #b763cf;
+}
+
+.psychicIcon:hover {
+  background: #fa8581;
+  box-shadow: 0 0 20px #fa8581;
+}
+
+.rockIcon:hover {
+  background: #c9bb8a;
+  box-shadow: 0 0 20px #c9bb8a;
+}
+
+.steelIcon:hover {
+  background: #5695a3;
+  box-shadow: 0 0 20px #5695a3;
+}
+
+.waterIcon:hover {
+  background: #539ddf;
+  box-shadow: 0 0 20px #539ddf;
+}
+
+/* Individual Entries */
+.pokemonImg {
+  border-radius: 1rem;
+  box-shadow: 0 0 2em #111111;
+}
+
+.pokemonInfo {
+  border-radius: 1rem;
+  box-shadow: 0 0 2em #111111;
+}
+
+.textEntry {
+  margin: 2em;
+}
+
+.statName {
+  width: 20%;
+}
+
+.statVal {
+  width: 15%;
+}
+
+.statProgBg {
+  background-color: #cec9df;
+}
+
+/* Dark Mode Entry */
+
+.pokemonInfoDark {
+  border-radius: 1rem;
+  box-shadow: 0 0 2em #111111;
+  background-color: "#2b2c30";
+}
+
+.pokemonInfoDark {
+  border-radius: 1rem;
+  box-shadow: 0 0 2em #111111;
+}
+
+.pokemonInfoDark h1 {
+  color: white;
+}
+
+.pokemonInfoDark b {
+  color: white;
+}
+
+.pokemonInfoDark p {
+  color: "#bbb8ca";
+}
+
+.pokemonInfo .statVal {
+  color: "#bbb8ca";
+}
+
+.pokemonInfo .statProgBg {
+  background-color: "#181818";
+}
+
+/* Footer */
+.footer-fixed {
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+/* Error */
+.contact {
+  color: rgb(165, 233, 241);
+}
+
+.contact:hover {
+  color: #0abdc6;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .pokemonImg {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+  }
+
+  .pokemonImg img {
+    z-index: 1000;
+    box-shadow: none;
+  }
+
+  .pokemonInfo {
+    margin-top: -3.3rem;
+    padding-top: 1.5rem;
+    border-radius: 2rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    box-shadow: none;
+  }
+
+  .textEntry {
+    margin: 0;
+  }
+
+  .statName {
+    width: 35%;
+  }
+
+  .statVal {
+    width: 20%;
+  }
+}

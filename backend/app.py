@@ -9,7 +9,8 @@ MODE = os.getenv('FLASK_ENV')
 DEV_SERVER_URL = os.getenv('FRONTEND')
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "{}".format(DEV_SERVER_URL)}})
+CORS(app)
+app.config["CORS_ORIGINS"] = [DEV_SERVER_URL]
 
 # Ignore static folder in development mode.
 if MODE == "development":
@@ -25,7 +26,7 @@ def index(path=''):
         return render_template("index.html")
 
 
-@app.route('/api/classify', methods=['POST', 'GET'])
+@app.route('/api/classify', methods=['POST'])
 def classify():
     if (request.files['image']):
         file = request.files['image']

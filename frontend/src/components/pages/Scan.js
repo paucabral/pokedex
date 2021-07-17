@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const MODEL_ENDPOINT = "http://192.168.254.105:5000/api/classify";
+const MODEL_ENDPOINT = process.env.REACT_APP_SCAN_API_ENDPOINT;
 
 const Scan = () => {
   const canvasRef = useRef();
@@ -74,7 +74,7 @@ const Scan = () => {
 
   return (
     <React.Fragment>
-      <div className="container" style={{ height: "100vh", marginBottom: "5%"}}>
+      <div className="container" style={{ height: "115vh"}}>
         <h3 className="text-white">Scan</h3>
         <br/>
 

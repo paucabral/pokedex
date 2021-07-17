@@ -102,7 +102,7 @@ const Scan = () => {
           }
           <br/>
           <br/>
-          <p className="text-white"><i>Note: The model used softmax as activator.</i></p>
+          <p className="text-white"><i>Note: The model still needs optimization. This classifier can only detect Generation 1 Pokémon (ID 1-151). The activator used for the model is softmax.</i></p>
         </div>
       </div>
     </React.Fragment>

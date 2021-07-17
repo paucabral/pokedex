@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { pokemon_showdown_sprites_directory } from '../../data/api';
 
 const MODEL_ENDPOINT = process.env.REACT_APP_SCAN_API_ENDPOINT;
 
@@ -74,7 +76,7 @@ const Scan = () => {
 
   return (
     <React.Fragment>
-      <div className="container" style={{ height: "115vh"}}>
+      <div className="container" style={{ height: "100vh", marginBottom: "20%"}}>
         <h3 className="text-white">Scan</h3>
         <br/>
 
@@ -84,6 +86,22 @@ const Scan = () => {
           <span className="text-white"><b>Pokémon:</b> {String(result.name).toUpperCase()}</span>
           <br/>
           <span className="text-white"><b>Accuracy:</b> {Math.round((result.accuracy + Number.EPSILON) * 100)/100} %</span>
+          <br/>
+          <br/>
+          {
+            result.name ?
+            <img src={`${pokemon_showdown_sprites_directory}${String(result.name)}.gif`} alt={String(result.name)}/>:
+            ""
+          }
+          <br/>
+          <br/>
+          {
+            result.name ?
+          <Link to={ result.name } className="text-white btn-info" style={{ fontWeight: "bold", borderRadius: "0.3rem", textDecoration: "none", padding: "0.7rem" }}>VIEW {String(result.name).toUpperCase()}</Link> :
+            ""
+          }
+          <br/>
+          <br/>
           <p className="text-white"><i>Note: The model used softmax as activator.</i></p>
         </div>
       </div>

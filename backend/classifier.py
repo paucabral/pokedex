@@ -2,25 +2,28 @@ import os
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
+from PIL import ImageFile, Image
+from io import BytesIO
 from dotenv import load_dotenv
 
 load_dotenv()
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 # Specify model.
 MODEL_PATH = os.getenv('MODEL_PATH')
-print(MODEL_PATH)
 model = keras.models.load_model(MODEL_PATH)
 
 
-def getPrediction(img_bytes, model):
+def getPrediction(img_file, model):
     img_height = 200
     img_width = 200
 
-    img = keras.preprocessing.image.load_img(
-        img_bytes, target_size=(img_height, img_width)
-    )
+    original_image = Image.open(img_file)
+    original_image = original_image.convert('RGB')
+    original_image = original_image.resize(
+        (img_height, img_width), Image.NEAREST)
 
-    img_array = keras.preprocessing.image.img_to_array(img)
+    img_array = keras.preprocessing.image.img_to_array(original_image)
     img_array = tf.expand_dims(img_array, 0)  # Create a batch
 
     predictions = model.predict(img_array)
@@ -41,6 +44,6 @@ def classifyImage(file):
     pokemon_list = ['abra', 'aerodactyl', 'alakazam', 'arbok', 'arcanine', 'articuno', 'beedrill', 'bellsprout', 'blastoise', 'bulbasaur', 'butterfree', 'caterpie', 'chansey', 'charizard', 'charmander', 'charmeleon', 'clefable', 'clefairy', 'cloyster', 'cubone', 'dewgong', 'diglett', 'ditto', 'dodrio', 'doduo', 'dragonair', 'dragonite', 'dratini', 'drowzee', 'dugtrio', 'eevee', 'ekans', 'electabuzz', 'electrode', 'exeggcute', 'exeggutor', 'farfetchd', 'fearow', 'flareon', 'gastly', 'gengar', 'geodude', 'gloom', 'golbat', 'goldeen', 'golduck', 'golem', 'graveler', 'grimer', 'growlithe', 'gyarados', 'haunter', 'hitmonchan', 'hitmonlee', 'horsea', 'hypno', 'ivysaur', 'jigglypuff', 'jolteon', 'jynx', 'kabuto', 'kabutops', 'kadabra', 'kakuna', 'kangaskhan', 'kingler', 'koffing', 'krabby', 'lapras', 'lickitung', 'machamp', 'machoke', 'machop', 'magikarp',
                     'magmar', 'magnemite', 'magneton', 'mankey', 'marowak', 'meowth', 'metapod', 'mew', 'mewtwo', 'moltres', 'mr-mime', 'muk', 'nidoking', 'nidoqueen', 'nidoran-f', 'nidoran-m', 'nidorina', 'nidorino', 'ninetales', 'oddish', 'omanyte', 'omastar', 'onix', 'paras', 'parasect', 'persian', 'pidgeot', 'pidgeotto', 'pidgey', 'pikachu', 'pinsir', 'poliwag', 'poliwhirl', 'poliwrath', 'ponyta', 'porygon', 'primeape', 'psyduck', 'raichu', 'rapidash', 'raticate', 'rattata', 'rhydon', 'rhyhorn', 'sandshrew', 'sandslash', 'scyther', 'seadra', 'seaking', 'seel', 'shellder', 'slowbro', 'slowpoke', 'snorlax', 'spearow', 'squirtle', 'starmie', 'staryu', 'tangela', 'tauros', 'tentacool', 'tentacruel', 'vaporeon', 'venomoth', 'venonat', 'venusaur', 'victreebel', 'vileplume', 'voltorb', 'vulpix', 'wartortle', 'weedle', 'weepinbell', 'weezing', 'wigglytuff', 'zapdos', 'zubat']
 
-    result = [pokemon_list[best], eval_score]
+    result = pokemon_list[best]
 
     return result

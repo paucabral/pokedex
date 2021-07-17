@@ -1,5 +1,8 @@
 flask
+flask-cors
 requests
 python-dotenv
 tensorflow
 numpy
+pillow
+io

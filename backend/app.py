@@ -20,10 +20,7 @@ if MODE == "development":
 @app.route('/')
 @app.route('/<path:path>')
 def index(path=''):
-    if MODE == 'development':
-        return redirect(DEV_SERVER_URL)
-    else:
-        return render_template("index.html")
+    return redirect(DEV_SERVER_URL)
 
 
 @app.route('/api/classify', methods=['POST'])

@@ -83,7 +83,7 @@ const Scan = () => {
           <canvas ref={canvasRef} hidden></canvas>
           <span className="text-white"><b>Pokémon:</b> {String(result.name).toUpperCase()}</span>
           <br/>
-          <span className="text-white"><b>Accuracy:</b> {result.accuracy} </span>
+          <span className="text-white"><b>Accuracy:</b> {Math.round((result.accuracy + Number.EPSILON) * 100)/100} %</span>
           <p className="text-white"><i>Note: The model used softmax as activator.</i></p>
         </div>
       </div>

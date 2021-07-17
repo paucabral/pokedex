@@ -10,7 +10,7 @@ DEV_SERVER_URL = os.getenv('FRONTEND')
 
 app = Flask(__name__)
 CORS(app)
-app.config["CORS_ORIGINS"] = [DEV_SERVER_URL]
+# app.config["CORS_ORIGINS"] = [DEV_SERVER_URL]
 
 # Ignore static folder in development mode.
 if MODE == "development":

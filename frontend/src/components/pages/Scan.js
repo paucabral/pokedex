@@ -97,7 +97,7 @@ const Scan = () => {
           <br/>
           {
             result.name ?
-          <Link to={ result.name } className="text-white btn-info" style={{ fontWeight: "bold", borderRadius: "0.3rem", textDecoration: "none", padding: "0.7rem" }}>VIEW {String(result.name).toUpperCase()}</Link> :
+          <Link to={ `/pokemon/${result.name}` } className="text-white btn-info" style={{ fontWeight: "bold", borderRadius: "0.3rem", textDecoration: "none", padding: "0.7rem" }}>VIEW {String(result.name).toUpperCase()}</Link> :
             ""
           }
           <br/>

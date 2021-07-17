@@ -12,12 +12,8 @@ app = Flask(__name__)
 CORS(app)
 # app.config["CORS_ORIGINS"] = [DEV_SERVER_URL]
 
-# Ignore static folder in development mode.
-if MODE == "development":
-    app = Flask(__name__, static_folder=None)
 
-
-@app.route('/')
+@app.route('/', methods=['GET'])
 @app.route('/<path:path>')
 def index(path=''):
     # return redirect(DEV_SERVER_URL)
@@ -37,4 +33,4 @@ def classify():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', threaded=True)

@@ -7,7 +7,7 @@ const Scan = () => {
   const imageRef = useRef();
   const videoRef = useRef();
 
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState({});
 
   // Get the camera feed.
   useEffect(() => {
@@ -40,8 +40,8 @@ const Scan = () => {
         });
 
         if (response.status === 200) {
-          const text = await response.text();
-          setResult(text);
+          const output = await response.json();
+          setResult(output);
         } else {
           setResult("Error from API.");
         }
@@ -81,7 +81,10 @@ const Scan = () => {
         <div className="container">
           <video className="container" ref={videoRef} onCanPlay={() => playCameraStream()} />
           <canvas ref={canvasRef} hidden></canvas>
-          <p className="text-white">Currently seeing: {result}</p>
+          <span className="text-white"><b>Pokémon:</b> {String(result.name).toUpperCase()}</span>
+          <br/>
+          <span className="text-white"><b>Accuracy:</b> {result.accuracy} </span>
+          <p className="text-white"><i>Note: The model used softmax as activator.</i></p>
         </div>
       </div>
     </React.Fragment>

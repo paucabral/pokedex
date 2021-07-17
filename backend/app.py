@@ -31,7 +31,8 @@ def classify():
     if (request.files['image']):
         file = request.files['image']
 
-        result = jsonify(classifyImage(file))
+        raw = classifyImage(file)
+        result = jsonify({"name": raw[0], "accuracy": raw[1]})
         result.headers.add("Access-Control-Allow-Origin", "*")
 
         return result

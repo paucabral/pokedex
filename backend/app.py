@@ -10,14 +10,13 @@ DEV_SERVER_URL = os.getenv('FRONTEND')
 
 app = Flask(__name__)
 CORS(app)
-# app.config["CORS_ORIGINS"] = [DEV_SERVER_URL]
+app.config["CORS_ORIGINS"] = [DEV_SERVER_URL]
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 @app.route('/<path:path>')
 def index(path=''):
-    # return redirect(DEV_SERVER_URL)
-    return jsonify({"response": "nice"})
+    return redirect(DEV_SERVER_URL)
 
 
 @app.route('/api/classify', methods=['POST'])

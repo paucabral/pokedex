@@ -15,7 +15,7 @@ app.config["CORS_ORIGINS"] = [DEV_SERVER_URL]
 
 @app.route('/')
 @app.route('/<path:path>')
-def index(path=''):
+def index():
     return redirect(DEV_SERVER_URL)
 
 

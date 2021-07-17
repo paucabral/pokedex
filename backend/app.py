@@ -1,6 +1,7 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
+from werkzeug.utils import redirect
 from reverseproxy import proxyRequest
 from classifier import classifyImage
 
@@ -8,7 +9,7 @@ MODE = os.getenv('FLASK_ENV')
 DEV_SERVER_URL = os.getenv('FRONTEND')
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "{}".format(DEV_SERVER_URL)}})
 
 # Ignore static folder in development mode.
 if MODE == "development":
@@ -19,20 +20,21 @@ if MODE == "development":
 @app.route('/<path:path>')
 def index(path=''):
     if MODE == 'development':
-        return proxyRequest(DEV_SERVER_URL, path)
+        return redirect(DEV_SERVER_URL)
     else:
         return render_template("index.html")
 
 
-@app.route('/classify', methods=['POST'])
+@app.route('/api/classify', methods=['POST', 'GET'])
 def classify():
     if (request.files['image']):
         file = request.files['image']
 
-        result = classifyImage(file)
-        print('Model classification: ' + result)
+        result = jsonify(classifyImage(file))
+        result.headers.add("Access-Control-Allow-Origin", "*")
+
         return result
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const MODEL_ENDPOINT = "http://localhost:5000/classify";
+const MODEL_ENDPOINT = "http://192.168.254.105:5000/api/classify";
 
 const Scan = () => {
   const canvasRef = useRef();
